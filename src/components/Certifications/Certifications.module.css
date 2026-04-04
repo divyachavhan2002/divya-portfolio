@@ -1,0 +1,66 @@
+/* ── Certifications.module.css ──────────────────────────────────────────── */
+
+.certifications { background: var(--bg-primary); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.certCard { border-left: 3px solid var(--accent); }
+
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.iconBox {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 10px;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.issuer {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: var(--accent-glow);
+  border: 1px solid var(--accent);
+  padding: 0.2rem 0.7rem;
+  border-radius: 9999px;
+  margin-bottom: 1rem;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  line-height: 1.75;
+  margin-bottom: 1.25rem;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
