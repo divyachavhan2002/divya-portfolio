@@ -1,8 +1,7 @@
 "use client";
 
 import ScrollReveal from "@/components/ScrollReveal";
-import { experience } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { experience, strings } from "@/data";
 import { HiBriefcase, HiCalendarDays, HiCheckCircle } from "react-icons/hi2";
 
 export default function Experience() {
@@ -121,7 +120,7 @@ export default function Experience() {
                           marginTop: "0.3rem",
                         }}
                       >
-                        {job.type} · {job.location}
+                        {job.type} {strings.experience.type_separator} {job.location}
                       </p>
                     </div>
                   </div>

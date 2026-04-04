@@ -1,4 +1,33 @@
-export const personalInfo = {
+// ─────────────────────────────────────────────────────────────────────────────
+// src/data/resume.ts
+//
+// ✏️  THIS IS THE ONLY FILE YOU NEED TO EDIT to update portfolio content.
+//
+// Every string, number, and URL in here is consumed by components via
+// the barrel export at src/data/index.ts — no component contains hardcoded
+// resume data.  Just update the values below and the entire site updates.
+//
+// Sections:
+//   personalInfo  → Hero, About, Contact, Footer, Navbar social links
+//   about         → About section bio + highlight bullets
+//   skills        → Skills section (categories + proficiency 0-100)
+//   experience    → Experience section timeline
+//   education     → Education section cards
+//   projects      → Projects section cards
+//   certifications→ Certifications section cards
+// ─────────────────────────────────────────────────────────────────────────────
+
+import type {
+  PersonalInfo,
+  AboutData,
+  SkillCategory,
+  ExperienceItem,
+  EducationItem,
+  ProjectItem,
+  CertificationItem,
+} from "./types";
+
+export const personalInfo: PersonalInfo = {
   name: "Divya Chavhan",
   title: "Full Stack Developer",
   tagline: "Building performant, modern web applications with React & Next.js",
@@ -11,7 +40,7 @@ export const personalInfo = {
   avatar: "/images/avatar.png",
 };
 
-export const about = {
+export const about: AboutData = {
   bio: `I am a Computer Science graduate with hands-on internship experience as a Web Developer, specializing in frontend and full stack development. Proficient in JavaScript, TypeScript, ReactJS, Next.js, Node.js, and RESTful APIs. Experienced with Firebase, Supabase, MongoDB, and Google Authentication from delivering a production SaaS video learning platform. Familiar with Azure Functions, unit testing using JEST, Agile/Scrum workflows, and Git version control. Seeking to contribute to SaaS product development with a focus on performance-oriented, maintainable UI code and effective team collaboration.`,
   highlights: [
     "Full Stack Developer specializing in React & Next.js",
@@ -21,7 +50,7 @@ export const about = {
   ],
 };
 
-export const skills = [
+export const skills: SkillCategory[] = [
   {
     category: "Frontend",
     items: [
@@ -83,7 +112,7 @@ export const skills = [
   },
 ];
 
-export const experience = [
+export const experience: ExperienceItem[] = [
   {
     id: 1,
     role: "Web Developer Intern",
@@ -105,7 +134,7 @@ export const experience = [
   },
 ];
 
-export const education = [
+export const education: EducationItem[] = [
   {
     id: 1,
     degree: "Bachelor of Science in Computer Science",
@@ -122,7 +151,7 @@ export const education = [
   },
 ];
 
-export const projects = [
+export const projects: ProjectItem[] = [
   {
     id: 1,
     title: "LearnHub — Video Learning Platform",
@@ -158,7 +187,7 @@ export const projects = [
   },
 ];
 
-export const certifications = [
+export const certifications: CertificationItem[] = [
   {
     id: 1,
     title: "Full Stack Web Developer Certification",

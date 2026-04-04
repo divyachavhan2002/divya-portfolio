@@ -3,8 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import { projects } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { projects, strings } from "@/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { HiStar } from "react-icons/hi2";
 
@@ -69,7 +68,7 @@ export default function Projects() {
                       letterSpacing: "0.05em",
                     }}
                   >
-                    <HiStar size={12} /> Featured
+                    <HiStar size={12} /> {strings.projects.featured_label}
                   </span>
                 )}
 

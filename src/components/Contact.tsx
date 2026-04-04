@@ -2,8 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import ScrollReveal from "@/components/ScrollReveal";
-import { personalInfo } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { personalInfo, strings } from "@/data";
 import {
   HiEnvelope,
   HiPhone,
@@ -105,8 +104,7 @@ export default function Contact() {
                 fontSize: "0.97rem",
               }}
             >
-              I&apos;m open to new opportunities. Whether you have a project idea, want
-              to collaborate, or just want to say hi — my inbox is always open!
+            {strings.contact.intro}
             </p>
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2rem" }}>

@@ -3,8 +3,7 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import ScrollReveal from "@/components/ScrollReveal";
-import { skills } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { skills, strings } from "@/data";
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);

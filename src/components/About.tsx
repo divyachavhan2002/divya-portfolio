@@ -1,8 +1,7 @@
 "use client";
 
 import ScrollReveal from "@/components/ScrollReveal";
-import { about, personalInfo } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { about, personalInfo, strings } from "@/data";
 import { HiCheckCircle, HiMapPin, HiEnvelope, HiPhone } from "react-icons/hi2";
 
 export default function About() {
@@ -89,7 +88,7 @@ export default function About() {
                   marginBottom: "1.25rem",
                 }}
               >
-                What I bring to the table
+              {strings.about.highlights_heading}
               </h3>
               <ul
                 style={{

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
+import { siteConfig } from "@/data";
 
 type Theme = "dark" | "light";
 
@@ -19,7 +20,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
-    const preferred = saved ?? "dark";
+    const preferred = saved ?? siteConfig.defaultTheme;
     setTheme(preferred);
     document.documentElement.setAttribute("data-theme", preferred);
   }, []);

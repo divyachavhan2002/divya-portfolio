@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { HiArrowDownTray, HiEnvelope } from "react-icons/hi2";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-import { personalInfo } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { personalInfo, strings } from "@/data";
 import Image from "next/image";
 
 export default function Hero() {
@@ -179,7 +178,7 @@ export default function Hero() {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
                 <FaLinkedin size={18} />
-                <span>LinkedIn</span>
+                <span>{strings.hero.social_linkedin}</span>
               </a>
               <a
                 href={personalInfo.github}
@@ -203,7 +202,7 @@ export default function Hero() {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
                 <FaGithub size={18} />
-                <span>GitHub</span>
+                <span>{strings.hero.social_github}</span>
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
@@ -225,7 +224,7 @@ export default function Hero() {
                 onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
               >
                 <HiEnvelope size={18} />
-                <span>Email</span>
+                <span>{strings.hero.social_email}</span>
               </a>
             </motion.div>
           </div>

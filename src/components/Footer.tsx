@@ -1,7 +1,6 @@
 "use client";
 
-import { personalInfo } from "@/data/resume";
-import { strings } from "@/data/strings";
+import { personalInfo, strings } from "@/data";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { HiEnvelope, HiHeart } from "react-icons/hi2";
 
