@@ -2,13 +2,13 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import ScrollReveal from "@/components/ScrollReveal";
-import { skills, strings } from "@/data";
+import { ScrollReveal } from "@/components";
+import { skills, strings, SKILL_BAR_OBSERVER_MARGIN } from "@/data";
 import styles from "./Skills.module.css";
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
+  const inView = useInView(ref, { once: true, margin: SKILL_BAR_OBSERVER_MARGIN });
 
   return (
     <div ref={ref} className={styles.skillRow}>

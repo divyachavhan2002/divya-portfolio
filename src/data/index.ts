@@ -27,6 +27,21 @@ export { strings } from "./strings";
 // Site-level config & feature flags
 export { siteConfig, featureFlags } from "./config";
 
+// Shared constants (thresholds, animation values, social links)
+export {
+  NAVBAR_SCROLL_THRESHOLD,
+  BACK_TO_TOP_THRESHOLD,
+  NAV_OBSERVER_MARGIN,
+  REVEAL_OBSERVER_MARGIN,
+  SKILL_BAR_OBSERVER_MARGIN,
+  REVEAL_DURATION,
+  REVEAL_OFFSET,
+  REVEAL_X_OFFSET,
+  socialLinks,
+} from "./constants";
+
+export type { SocialLink } from "./constants";
+
 // TypeScript interfaces (for use in components that need typed props)
 export type {
   PersonalInfo,

@@ -97,3 +97,8 @@
   color: var(--accent);
   border-color: var(--accent);
 }
+
+.demoLink {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+}

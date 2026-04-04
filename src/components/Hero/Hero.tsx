@@ -2,8 +2,7 @@
 
 import { motion } from "framer-motion";
 import { HiArrowDownTray, HiEnvelope } from "react-icons/hi2";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { personalInfo, strings } from "@/data";
+import { personalInfo, strings, socialLinks, featureFlags } from "@/data";
 import styles from "./Hero.module.css";
 
 const fadeUp = (delay: number) => ({
@@ -18,7 +17,7 @@ export default function Hero() {
       <div className={styles.orbRight} aria-hidden="true" />
       <div className={styles.orbLeft} aria-hidden="true" />
 
-      <div className="section-inner" style={{ width: "100%" }}>
+      <div className={`section-inner ${styles.sectionInner}`}>
         <div className={styles.grid}>
           {/* Text content */}
           <div className={styles.textCol}>
@@ -40,15 +39,17 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <motion.div {...fadeUp(0.4)} className={styles.ctaGroup}>
-              <a
-                href={personalInfo.resumePdf}
-                download
-                className="btn-primary"
-                aria-label="Download Resume PDF"
-              >
-                <HiArrowDownTray size={18} />
-                {strings.hero.cta_resume}
-              </a>
+              {featureFlags.resumeDownload && (
+                <a
+                  href={personalInfo.resumePdf}
+                  download
+                  className="btn-primary"
+                  aria-label="Download Resume PDF"
+                >
+                  <HiArrowDownTray size={18} />
+                  {strings.hero.cta_resume}
+                </a>
+              )}
               <a
                 href="#contact"
                 className="btn-outline"
@@ -65,34 +66,19 @@ export default function Hero() {
 
             {/* Social Links */}
             <motion.div {...fadeUp(0.5)} className={styles.socialGroup}>
-              <a
-                href={personalInfo.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn profile"
-                className={styles.socialLink}
-              >
-                <FaLinkedinIn size={16} />
-                <span>{strings.hero.social_linkedin}</span>
-              </a>
-              <a
-                href={personalInfo.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub profile"
-                className={styles.socialLink}
-              >
-                <FaGithub size={16} />
-                <span>{strings.hero.social_github}</span>
-              </a>
-              <a
-                href={`mailto:${personalInfo.email}`}
-                aria-label="Send email"
-                className={styles.socialLink}
-              >
-                <HiEnvelope size={16} />
-                <span>{strings.hero.social_email}</span>
-              </a>
+              {socialLinks.map(({ href, icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={`${label} profile`}
+                  className={styles.socialLink}
+                >
+                  {icon}
+                  <span>{label}</span>
+                </a>
+              ))}
             </motion.div>
           </div>
 

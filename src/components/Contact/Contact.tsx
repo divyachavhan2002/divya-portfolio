@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import ScrollReveal from "@/components/ScrollReveal";
-import { personalInfo, strings } from "@/data";
+import { ScrollReveal } from "@/components";
+import { personalInfo, strings, socialLinks } from "@/data";
 import { HiEnvelope, HiPhone, HiMapPin, HiPaperAirplane } from "react-icons/hi2";
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
 interface FormState {
@@ -76,12 +75,18 @@ export default function Contact() {
             </div>
 
             <div className={styles.socials}>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className={styles.socialCircle}>
-                <FaLinkedinIn size={17} />
-              </a>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className={styles.socialCircle}>
-                <FaGithub size={17} />
-              </a>
+              {socialLinks.map(({ href, icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className={styles.socialCircle}
+                >
+                  {icon}
+                </a>
+              ))}
             </div>
           </ScrollReveal>
 

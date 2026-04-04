@@ -1,6 +1,6 @@
 "use client";
 
-import ScrollReveal from "@/components/ScrollReveal";
+import { ScrollReveal } from "@/components";
 import { certifications, strings } from "@/data";
 import { HiAcademicCap, HiCalendarDays } from "react-icons/hi2";
 import styles from "./Certifications.module.css";

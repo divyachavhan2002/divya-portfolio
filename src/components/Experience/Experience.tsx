@@ -1,6 +1,6 @@
 "use client";
 
-import ScrollReveal from "@/components/ScrollReveal";
+import { ScrollReveal } from "@/components";
 import { experience, strings } from "@/data";
 import { HiBriefcase, HiCalendarDays, HiCheckCircle } from "react-icons/hi2";
 import styles from "./Experience.module.css";
@@ -31,7 +31,7 @@ export default function Experience() {
                       <h3 className={styles.role}>{job.role}</h3>
                       <p className={styles.company}>{job.company}</p>
                     </div>
-                    <div style={{ textAlign: "right" }}>
+                    <div className={styles.headerRight}>
                       <span className={styles.badge}>
                         <HiCalendarDays size={13} />
                         {job.duration}

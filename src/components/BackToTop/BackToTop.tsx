@@ -2,18 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { HiArrowUp } from "react-icons/hi2";
+import { featureFlags, BACK_TO_TOP_THRESHOLD } from "@/data";
 import styles from "./BackToTop.module.css";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 400);
+    const onScroll = () => setVisible(window.scrollY > BACK_TO_TOP_THRESHOLD);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!visible) return null;
+  if (!featureFlags.backToTopButton || !visible) return null;
 
   return (
     <button

@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import ScrollReveal from "@/components/ScrollReveal";
-import { projects, strings } from "@/data";
+import { ScrollReveal } from "@/components";
+import { projects, strings, featureFlags } from "@/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { HiStar } from "react-icons/hi2";
 import styles from "./Projects.module.css";
@@ -26,7 +26,7 @@ export default function Projects() {
                 transition={{ duration: 0.25 }}
                 aria-label={`Project: ${project.title}`}
               >
-                {project.featured && (
+                {featureFlags.projectFeaturedBadge && project.featured && (
                   <span className={styles.featuredBadge}>
                     <HiStar size={12} /> {strings.projects.featured_label}
                   </span>
@@ -66,8 +66,7 @@ export default function Projects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`${project.title} live demo`}
-                      className="btn-primary"
-                      style={{ padding: "0.35rem 0.9rem", fontSize: "0.85rem" }}
+                      className={`btn-primary ${styles.demoLink}`}
                     >
                       <FaExternalLinkAlt size={12} />
                       {strings.projects.live_demo}
