@@ -1,0 +1,86 @@
+/* ── Languages.module.css ────────────────────────────────────────────────── */
+
+.languages {
+  background: var(--bg-primary);
+}
+
+.card {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.langRow {
+  margin-bottom: 1.5rem;
+}
+
+.langRow:last-child {
+  margin-bottom: 0;
+}
+
+.langMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.langInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.langIcon {
+  color: var(--accent);
+}
+
+.langName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.langProf {
+  font-size: 0.8rem;
+  color: var(--accent-light);
+  font-weight: 500;
+  background: var(--accent-glow);
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid var(--accent);
+}
+
+.barTrack {
+  height: 8px;
+  background: var(--border);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: var(--gradient);
+  border-radius: 9999px;
+  position: relative;
+}
+
+.barFill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

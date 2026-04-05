@@ -9,6 +9,7 @@ import styles from "./Navbar.module.css";
 const navItems = [
   { label: strings.nav.about, href: "#about" },
   { label: strings.nav.skills, href: "#skills" },
+  { label: strings.nav.languages, href: "#languages" },
   { label: strings.nav.experience, href: "#experience" },
   { label: strings.nav.education, href: "#education" },
   { label: strings.nav.projects, href: "#projects" },

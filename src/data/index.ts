@@ -19,6 +19,8 @@ export {
   education,
   projects,
   certifications,
+  languages,
+  stats,
 } from "./resume";
 
 // UI strings (labels / display text)
@@ -52,6 +54,8 @@ export type {
   EducationItem,
   ProjectItem,
   CertificationItem,
+  LanguageItem,
+  StatsItem,
   UIStrings,
   SiteConfig,
 } from "./types";

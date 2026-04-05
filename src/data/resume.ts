@@ -25,6 +25,8 @@ import type {
   EducationItem,
   ProjectItem,
   CertificationItem,
+  LanguageItem,
+  StatsItem,
 } from "./types";
 
 export const personalInfo: PersonalInfo = {
@@ -37,6 +39,8 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://linkedin.com/in/divyachavhan-8a91b7315",
   github: "https://github.com/divyachavhan2002",
   resumePdf: "/resume/Divya_Chavhan_Resume.pdf",
+  avatar: "/images/avatar.png",
+  availableForWork: true,
 };
 
 export const about: AboutData = {
@@ -179,6 +183,16 @@ export const projects: ProjectItem[] = [
     demo: "",
     featured: false,
   },
+  {
+    id: 4,
+    title: "TaskFlow — Todo List App",
+    description:
+      "A clean, feature-rich Todo List app with priority levels (High/Medium/Low), due dates, inline editing, search & filter, progress tracking, dark mode, and undo/redo support. All data persists in localStorage with toast notifications for every action. Fully responsive across devices.",
+    tech: ["React.js", "CSS3", "localStorage", "Responsive Design"],
+    github: "https://github.com/divyachavhan2002/todo-list-app",
+    demo: "https://todo-list-app-taskflow.vercel.app",
+    featured: true,
+  },
 ];
 
 export const certifications: CertificationItem[] = [
@@ -191,4 +205,19 @@ export const certifications: CertificationItem[] = [
       "Completed hands-on training in JavaScript, TypeScript, ReactJS (Hooks, Context API), Node.js, Express.js, REST APIs, MongoDB, and Azure Functions. Wrote unit tests using JEST, practiced Agile/Scrum workflows, and applied secure coding and web performance optimization techniques.",
     skills: ["JavaScript", "TypeScript", "ReactJS", "Node.js", "Express.js", "MongoDB", "Azure Functions", "JEST"],
   },
+];
+
+// ── Languages ────────────────────────────────────────────────────────────────
+export const languages: LanguageItem[] = [
+  { name: "English", proficiency: "Professional", level: 85 },
+  { name: "Hindi", proficiency: "Fluent", level: 95 },
+  { name: "Marathi", proficiency: "Native", level: 100 },
+];
+
+// ── Stats (used in animated counters) ────────────────────────────────────────
+export const stats: StatsItem[] = [
+  { label: "Projects Built", value: 4, suffix: "+" },
+  { label: "Months Experience", value: 6, suffix: "+" },
+  { label: "Technologies", value: 15, suffix: "+" },
+  { label: "CGPA Score", value: 8.99, suffix: "" },
 ];

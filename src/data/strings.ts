@@ -15,6 +15,7 @@ export const strings: UIStrings = {
   nav: {
     about: "About",
     skills: "Skills",
+    languages: "Languages",
     experience: "Experience",
     education: "Education",
     projects: "Projects",
@@ -70,6 +71,12 @@ export const strings: UIStrings = {
   certifications: {
     section_title: "Certifications",
     section_subtitle: "Professional achievements",
+  },
+
+  // ── Languages ──────────────────────────────────────────────────────────────
+  languages: {
+    section_title: "Languages",
+    section_subtitle: "Proficient in communication",
   },
 
   // ── Contact ────────────────────────────────────────────────────────────────

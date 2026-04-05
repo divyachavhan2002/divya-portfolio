@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/context/ThemeContext";
-import { Navbar, BackToTop, Footer } from "@/components";
+import { Navbar, BackToTop, Footer, Particles } from "@/components";
 import { siteConfig, personalInfo } from "@/data";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -61,6 +61,7 @@ export default function RootLayout({
       </head>
       <body className={inter.variable}>
         <ThemeProvider>
+          <Particles />
           <Navbar />
           <main id="main-content" tabIndex={-1}>
             {children}

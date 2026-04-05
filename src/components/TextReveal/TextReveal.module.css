@@ -1,0 +1,26 @@
+.wrapper {
+  display: inline-block;
+  position: relative;
+  min-width: 280px;
+  height: 1.3em;
+  vertical-align: bottom;
+}
+
+.word {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    min-width: 200px;
+    display: block;
+    text-align: center;
+  }
+
+  .word {
+    position: relative;
+  }
+}

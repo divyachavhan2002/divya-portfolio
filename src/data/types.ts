@@ -16,6 +16,10 @@ export interface PersonalInfo {
   linkedin: string;
   github: string;
   resumePdf: string;
+  /** Path to avatar image under /public */
+  avatar: string;
+  /** Whether the developer is currently open to work */
+  availableForWork: boolean;
 }
 
 // ── About ────────────────────────────────────────────────────────────────────
@@ -23,6 +27,22 @@ export interface AboutData {
   bio: string;
   /** Short bullet highlights shown in the "What I bring" card */
   highlights: string[];
+}
+
+// ── Stats ────────────────────────────────────────────────────────────────────
+export interface StatsItem {
+  label: string;
+  value: number;
+  suffix?: string;
+}
+
+// ── Languages ────────────────────────────────────────────────────────────────
+export interface LanguageItem {
+  name: string;
+  /** Proficiency label, e.g. "Native", "Fluent", "Professional" */
+  proficiency: string;
+  /** Proficiency level 0–100 (used for animated bar) */
+  level: number;
 }
 
 // ── Skills ───────────────────────────────────────────────────────────────────
@@ -92,6 +112,7 @@ export interface CertificationItem {
 export interface NavStrings {
   about: string;
   skills: string;
+  languages: string;
   experience: string;
   education: string;
   projects: string;
@@ -133,6 +154,8 @@ export interface ProjectsStrings extends SectionHeading {
 
 export interface CertificationsStrings extends SectionHeading {}
 
+export interface LanguagesStrings extends SectionHeading {}
+
 export interface ContactStrings extends SectionHeading {
   intro: string;
   name_label: string;
@@ -161,6 +184,7 @@ export interface UIStrings {
   education: EducationStrings;
   projects: ProjectsStrings;
   certifications: CertificationsStrings;
+  languages: LanguagesStrings;
   contact: ContactStrings;
   footer: FooterStrings;
 }

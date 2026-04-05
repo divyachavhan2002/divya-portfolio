@@ -12,29 +12,70 @@
 
 .sectionInner {
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
-/* Background glow orbs */
+/* ── Subtle grid overlay ────────────────────────────────────────────────── */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.3;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+}
+
+/* ── Animated glow orbs ─────────────────────────────────────────────────── */
 .orbRight {
   position: absolute;
-  top: 15%;
-  right: 10%;
+  top: 10%;
+  right: 5%;
   width: 35rem;
   height: 35rem;
-  background: radial-gradient(circle, rgba(124, 106, 247, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(124, 106, 247, 0.18) 0%, transparent 70%);
   pointer-events: none;
+  animation: floatOrb 8s ease-in-out infinite;
 }
 
 .orbLeft {
   position: absolute;
-  bottom: 10%;
-  left: -5%;
+  bottom: 5%;
+  left: -8%;
   width: 25rem;
   height: 25rem;
-  background: radial-gradient(circle, rgba(192, 132, 252, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.12) 0%, transparent 70%);
   pointer-events: none;
+  animation: floatOrb 10s ease-in-out infinite reverse;
 }
 
+.orbCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40rem;
+  height: 40rem;
+  background: radial-gradient(circle, rgba(124, 106, 247, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+  animation: pulseOrb 6s ease-in-out infinite;
+}
+
+@keyframes floatOrb {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(15px, -20px); }
+}
+
+@keyframes pulseOrb {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
 .grid {
   display: flex;
   align-items: center;
@@ -48,6 +89,36 @@
   min-width: 0;
 }
 
+/* ── Availability badge ─────────────────────────────────────────────────── */
+.availBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  background: rgba(74, 222, 128, 0.1);
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  color: #4ade80;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.25rem;
+}
+
+.availDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+}
+
+/* ── Text content ───────────────────────────────────────────────────────── */
 .greeting {
   color: var(--accent);
   font-weight: 600;
@@ -65,11 +136,21 @@
   color: var(--text-primary);
 }
 
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.titlePrefix {
+  font-size: clamp(1.2rem, 3vw, 1.75rem);
+  font-weight: 700;
+}
+
 .title {
   font-size: clamp(1.2rem, 3vw, 1.75rem);
   font-weight: 700;
-  margin-bottom: 1.25rem;
-  display: block;
 }
 
 .tagline {
@@ -80,6 +161,7 @@
   margin-bottom: 2rem;
 }
 
+/* ── CTA Buttons ────────────────────────────────────────────────────────── */
 .ctaGroup {
   display: flex;
   gap: 1rem;
@@ -87,6 +169,30 @@
   margin-bottom: 2.5rem;
 }
 
+.ctaBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBtn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.ctaBtn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* ── Social links ───────────────────────────────────────────────────────── */
 .socialGroup {
   display: flex;
   gap: 1rem;
@@ -100,7 +206,7 @@
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   padding: 0.4rem 0.8rem;
   border-radius: 9999px;
   border: 1px solid var(--border);
@@ -110,11 +216,23 @@
 .socialLink:hover {
   color: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
-/* Avatar */
+/* ── Avatar ─────────────────────────────────────────────────────────────── */
 .avatarWrapper {
   flex: 0 0 auto;
+  position: relative;
+}
+
+.avatarGlow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: var(--gradient);
+  opacity: 0.15;
+  filter: blur(40px);
+  animation: pulseOrb 4s ease-in-out infinite;
 }
 
 .avatarRing {
@@ -124,28 +242,63 @@
   background: var(--gradient);
   padding: 4px;
   box-shadow: 0 0 50px var(--accent-glow);
+  position: relative;
+  z-index: 1;
+  animation: ringRotate 12s linear infinite;
 }
 
-.avatarInner {
+@keyframes ringRotate {
+  0% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 106, 247, 0.1); }
+  50% { box-shadow: 0 0 50px var(--accent-glow), 0 0 80px rgba(192, 132, 252, 0.15); }
+  100% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 106, 247, 0.1); }
+}
+
+.avatarImg {
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  object-fit: cover;
   background: var(--bg-secondary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  font-size: clamp(4rem, 10vw, 6rem);
-  font-weight: 800;
-  color: var(--accent);
-  user-select: none;
 }
 
+/* ── Scroll indicator ───────────────────────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollMouse {
+  width: 24px;
+  height: 40px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 6px;
+}
+
+.scrollDot {
+  width: 4px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--accent);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .grid {
     flex-direction: column-reverse;
     text-align: center;
     gap: 2rem;
+  }
+
+  .titleRow {
+    justify-content: center;
   }
 
   .socialGroup {
@@ -155,5 +308,14 @@
 
   .ctaGroup {
     justify-content: center;
+  }
+
+  .availBadge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .scrollIndicator {
+    display: none;
   }
 }
