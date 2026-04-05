@@ -20,7 +20,7 @@ const envTheme = process.env.NEXT_PUBLIC_DEFAULT_THEME;
 const defaultTheme: "dark" | "light" = envTheme === "light" ? "light" : "dark";
 
 export const siteConfig: SiteConfig = {
-    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://divya-portfolio.vercel.app",
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://divya-dev-portfolio.vercel.app",
     siteName: "Divya Chavhan Portfolio",
     pageTitle: "Divya Chavhan | Full Stack Developer",
     metaDescription:

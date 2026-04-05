@@ -163,20 +163,21 @@ export const projects: ProjectItem[] = [
   },
   {
     id: 3,
+    title: "Personal Portfolio Website",
+    description:
+      "A modern, fully responsive personal portfolio built with Next.js 16 App Router, featuring dark/light theme toggle, animated particle background, scroll-triggered animations with Framer Motion, animated counters, clickable stat cards, and WhatsApp integration. Fully static SSG output deployed on Vercel.",
+    tech: ["Next.js", "React 19", "TypeScript", "Tailwind CSS", "Framer Motion", "CSS Modules", "Vercel"],
+    image: "/images/divya_portfilo.png",
+    github: "https://github.com/divyachavhan2002/divya-portfolio",
+    demo: "https://divya-dev-portfolio.vercel.app/",
+    featured: true,
+  },
+  {
+    id: 4,
     title: "Serverless Backend Feature",
     description:
       "Built a serverless backend feature using Azure Functions integrated with a React frontend, practicing cloud-hosted application architecture and end-to-end feature delivery.",
     tech: ["Azure Functions", "Node.js", "REST API", "ReactJS"],
-    github: "https://github.com/divyachavhan2002",
-    demo: "",
-    featured: false,
-  },
-  {
-    id: 2,
-    title: "Personal Portfolio Website",
-    description:
-      "Designed and deployed a responsive personal portfolio with focus on page-load performance, semantic markup, and cross-platform rendering consistency.",
-    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     github: "https://github.com/divyachavhan2002",
     demo: "",
     featured: false,

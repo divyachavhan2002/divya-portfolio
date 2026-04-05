@@ -2,7 +2,7 @@
 
 A modern, fully responsive personal portfolio website built with **Next.js 16**, **Tailwind CSS**, **Framer Motion**, and **TypeScript**.
 
-🔗 **Live:** [dc-dev-portfolio.vercel.app](https://dc-dev-portfolio.vercel.app)
+🔗 **Live:** [divya-dev-portfolio.vercel.app](https://divya-dev-portfolio.vercel.app)
 📂 **Repo:** [github.com/divyachavhan2002/divya-portfolio](https://github.com/divyachavhan2002/divya-portfolio)
 
 ---
