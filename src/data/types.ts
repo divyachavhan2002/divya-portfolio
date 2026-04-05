@@ -23,6 +23,7 @@ export interface StatsItem {
   label: string;
   value: number;
   suffix?: string;
+  href?: string; // section anchor e.g. "#projects"
 }
 
 export interface LanguageItem {
@@ -96,7 +97,6 @@ export interface SiteConfig {
   keywords: string[];
   ogImage: string;
   defaultTheme: "dark" | "light";
-  deployRegion: string;
 }
 
 // ── UI String interfaces — shape must match locales/en.json exactly ───────────
@@ -108,7 +108,6 @@ export interface NavStrings {
 }
 
 export interface HeroStrings {
-  greeting: string;
   cta_resume: string;
   cta_contact: string;
   available_for_work: string;

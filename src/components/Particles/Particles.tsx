@@ -20,6 +20,7 @@ export default function Particles() {
   const particles = useRef<Particle[]>([]);
   const animationId = useRef<number>(0);
   const mouse = useRef({ x: -1000, y: -1000 });
+  const accentColor = useRef("");
 
   const init = useCallback((w: number, h: number) => {
     particles.current = Array.from({ length: PARTICLE_COUNT }, () => ({
@@ -51,11 +52,19 @@ export default function Particles() {
     window.addEventListener("resize", resize);
     window.addEventListener("mousemove", handleMouse);
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      const accentColor = getComputedStyle(document.documentElement)
+    // Cache accent color and update when theme changes
+    const readAccent = () => {
+      accentColor.current = getComputedStyle(document.documentElement)
         .getPropertyValue("--accent")
         .trim();
+    };
+    readAccent();
+    const observer = new MutationObserver(readAccent);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const color = accentColor.current;
 
       for (const p of particles.current) {
         p.x += p.vx;
@@ -74,7 +83,7 @@ export default function Particles() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `${accentColor}`;
+        ctx.fillStyle = color;
         ctx.globalAlpha = p.opacity;
         ctx.fill();
       }
@@ -89,7 +98,7 @@ export default function Particles() {
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = accentColor;
+            ctx.strokeStyle = color;
             ctx.globalAlpha = (1 - d / MAX_DISTANCE) * 0.15;
             ctx.lineWidth = 0.5;
             ctx.stroke();
@@ -103,6 +112,7 @@ export default function Particles() {
 
     return () => {
       cancelAnimationFrame(animationId.current);
+      observer.disconnect();
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", handleMouse);
     };

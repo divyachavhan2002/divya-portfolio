@@ -23,19 +23,3 @@ export {
   NAV_OBSERVER_MARGIN,
   SKILL_BAR_OBSERVER_MARGIN,
 } from "./config";
-
-export type {
-  PersonalInfo,
-  AboutData,
-  SkillItem,
-  SkillCategory,
-  ExperienceItem,
-  EducationItem,
-  ProjectItem,
-  CertificationItem,
-  LanguageItem,
-  StatsItem,
-  SocialLink,
-  UIStrings,
-  SiteConfig,
-} from "./types";

@@ -64,12 +64,14 @@ export default function Contact() {
             <p className={styles.intro}>{strings.contact.intro}</p>
 
             <div className={styles.contactList}>
-              {contactItems.map(({ icon, label, href }) => (
-                <a key={label} href={href} className={styles.contactItem}>
-                  <span className={styles.contactIcon}>{icon}</span>
-                  {label}
-                </a>
-              ))}
+              {contactItems.map(({ icon, label, href }) => {
+                const content = <><span className={styles.contactIcon}>{icon}</span>{label}</>;
+                return href ? (
+                  <a key={label} href={href} className={styles.contactItem}>{content}</a>
+                ) : (
+                  <span key={label} className={styles.contactItem}>{content}</span>
+                );
+              })}
             </div>
 
             <div className={styles.socials}>

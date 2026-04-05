@@ -41,7 +41,6 @@ export const siteConfig: SiteConfig = {
     ],
     ogImage: "/og-image.png",
     defaultTheme,
-    deployRegion: process.env.NEXT_PUBLIC_DEPLOY_REGION ?? "bom1",
 };
 
 // Set any flag to "false" via environment variable to disable the feature

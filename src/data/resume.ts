@@ -204,8 +204,8 @@ export const languages: LanguageItem[] = [
 
 // ── Stats (used in animated counters) ────────────────────────────────────────
 export const stats: StatsItem[] = [
-  { label: "Projects Built", value: 4, suffix: "+" },
-  { label: "Months Experience", value: 6, suffix: "+" },
-  { label: "Technologies", value: 20, suffix: "+" },
-  { label: "CGPA Score", value: 8.99, suffix: " A+" },
+  { label: "Projects Built", value: 4, suffix: "+", href: "#projects" },
+  { label: "Months Experience", value: 6, suffix: "+", href: "#experience" },
+  { label: "Technologies", value: 20, suffix: "+", href: "#skills" },
+  { label: "CGPA Score", value: 8.99, suffix: " A+", href: "#education" },
 ];
