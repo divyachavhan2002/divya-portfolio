@@ -1,0 +1,135 @@
+.projects {
+  background: var(--bg-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1.75rem;
+}
+
+.projectCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  cursor: default;
+  border-radius: calc(var(--card-radius) + 0.1rem);
+}
+
+.featuredBadge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--gradient);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.28rem 0.7rem;
+  border-radius: 9999px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.thumbnail {
+  height: 170px;
+  border-radius: 0.8rem;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 40%),
+    var(--gradient);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.24;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnailWithImage {
+  opacity: 1;
+  background: color-mix(in srgb, var(--bg-card) 86%, transparent);
+}
+
+.thumbnailImage {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.thumbnailLabel {
+  opacity: 1;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.codeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  padding: 0.35rem 0.8rem;
+  min-height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--bg-card) 84%, transparent);
+}
+
+.codeLink:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.demoLink {
+  padding: 0.35rem 0.9rem;
+  min-height: 48px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 1.25rem;
+  }
+
+  .thumbnail {
+    height: 140px;
+  }
+}

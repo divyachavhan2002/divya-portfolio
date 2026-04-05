@@ -1,23 +1,29 @@
-import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
-import Experience from "@/components/Experience";
-import Education from "@/components/Education";
-import Projects from "@/components/Projects";
-import Certifications from "@/components/Certifications";
-import Contact from "@/components/Contact";
+import dynamic from "next/dynamic";
+
+const HeroSection = dynamic(() => import("@/sections/Hero/Hero"));
+const StatsSection = dynamic(() => import("@/sections/Stats/Stats"));
+const AboutSection = dynamic(() => import("@/sections/About/About"));
+const SkillsSection = dynamic(() => import("@/sections/Skills/Skills"));
+const ExperienceSection = dynamic(() => import("@/sections/Experience/Experience"));
+const EducationSection = dynamic(() => import("@/sections/Education/Education"));
+const ProjectsSection = dynamic(() => import("@/sections/Projects/Projects"));
+const CertificationsSection = dynamic(() => import("@/sections/Certifications/Certifications"));
+const LanguagesSection = dynamic(() => import("@/sections/Languages/Languages"));
+const ContactSection = dynamic(() => import("@/sections/Contact/Contact"));
 
 export default function Home() {
   return (
     <>
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
-      <Projects />
-      <Certifications />
-      <Contact />
+      <HeroSection />
+      <StatsSection />
+      <AboutSection />
+      <SkillsSection />
+      <ExperienceSection />
+      <EducationSection />
+      <ProjectsSection />
+      <CertificationsSection />
+      <LanguagesSection />
+      <ContactSection />
     </>
   );
 }
