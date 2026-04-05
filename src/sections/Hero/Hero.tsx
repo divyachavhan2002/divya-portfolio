@@ -89,7 +89,7 @@ export default function Hero() {
                   href={href}
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noopener noreferrer"
-                  aria-label={label === strings.social.email_label ? strings.social.email_aria_label : `${label} ${strings.social.profile_aria_suffix}`}
+                  aria-label={label === "Email" ? strings.social.email_aria_label : `${label} ${strings.social.profile_aria_suffix}`}
                   className={styles.socialLink}
                   data-platform={label.toLowerCase()}
                 >

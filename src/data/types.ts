@@ -177,8 +177,8 @@ export interface NavbarStrings {
 }
 
 export interface SocialStrings {
-  linkedin_label: string; github_label: string; email_label: string;
-  email_aria_label: string; profile_aria_suffix: string;
+  email_aria_label: string;
+  profile_aria_suffix: string;
 }
 
 export interface UIStrings {

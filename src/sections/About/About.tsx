@@ -25,12 +25,14 @@ export default function About() {
             <p className={styles.bio}>{about.bio}</p>
 
             <div className={styles.chips}>
-              {contactChips.map(({ icon, label, href }) => (
-                <a key={label} href={href} className={styles.chip}>
-                  <span className={styles.chipIcon}>{icon}</span>
-                  {label}
-                </a>
-              ))}
+              {contactChips.map(({ icon, label, href }) => {
+                const content = <><span className={styles.chipIcon}>{icon}</span>{label}</>;
+                return href ? (
+                  <a key={label} href={href} className={styles.chip}>{content}</a>
+                ) : (
+                  <span key={label} className={styles.chip}>{content}</span>
+                );
+              })}
             </div>
           </ScrollReveal>
 

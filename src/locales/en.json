@@ -11,7 +11,6 @@
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hi, I'm",
     "cta_resume": "Download Resume",
     "cta_contact": "Contact Me",
     "available_for_work": "Available for Work",
@@ -93,9 +92,6 @@
     "theme_toggle_to_dark": "Switch to dark mode"
   },
   "social": {
-    "linkedin_label": "LinkedIn",
-    "github_label": "GitHub",
-    "email_label": "Email",
     "email_aria_label": "Send email to Divya",
     "profile_aria_suffix": "profile"
   }
