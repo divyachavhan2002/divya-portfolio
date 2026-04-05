@@ -1,4 +1,6 @@
-.projects { background: var(--bg-secondary); }
+.projects {
+  background: var(--bg-secondary);
+}
 
 .grid {
   display: grid;

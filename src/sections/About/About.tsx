@@ -1,7 +1,6 @@
 "use client";
 
-import { ScrollReveal } from "@/components";
-import { about, personalInfo, strings } from "@/data";
+import { ScrollReveal, about, personalInfo, strings } from "@/data";
 import { HiCheckCircle, HiMapPin, HiEnvelope, HiPhone } from "react-icons/hi2";
 import styles from "./About.module.css";
 

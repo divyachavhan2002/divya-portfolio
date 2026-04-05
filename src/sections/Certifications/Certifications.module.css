@@ -1,4 +1,6 @@
-.certifications { background: var(--bg-primary); }
+.certifications {
+  background: var(--bg-primary);
+}
 
 .grid {
   display: grid;
@@ -6,7 +8,9 @@
   gap: 1.5rem;
 }
 
-.certCard { border-left: 3px solid var(--accent); }
+.certCard {
+  border-left: 3px solid var(--accent);
+}
 
 .header {
   display: flex;
@@ -61,4 +65,8 @@
   margin-bottom: 1.25rem;
 }
 
-.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}

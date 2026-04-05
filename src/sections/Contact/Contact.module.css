@@ -1,4 +1,6 @@
-.contact { background: var(--bg-secondary); }
+.contact {
+  background: var(--bg-secondary);
+}
 
 .grid {
   display: grid;
@@ -49,7 +51,10 @@
   flex-shrink: 0;
 }
 
-.socials { display: flex; gap: 0.75rem; }
+.socials {
+  display: flex;
+  gap: 0.75rem;
+}
 
 .socialCircle {
   width: 2.5rem;
@@ -137,7 +142,9 @@
   min-height: 130px;
 }
 
-.submitBtn { justify-content: center; }
+.submitBtn {
+  justify-content: center;
+}
 
 .success {
   color: #4ade80;

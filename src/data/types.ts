@@ -1,11 +1,5 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// src/data/types.ts
-//
-// Single source of truth for ALL data-shape contracts used across the portfolio.
-// Add or extend interfaces here whenever new data shapes are introduced.
-// ─────────────────────────────────────────────────────────────────────────────
+import type { ReactNode } from "react";
 
-// ── Personal / Contact ───────────────────────────────────────────────────────
 export interface PersonalInfo {
   name: string;
   title: string;
@@ -16,40 +10,30 @@ export interface PersonalInfo {
   linkedin: string;
   github: string;
   resumePdf: string;
-  /** Path to avatar image under /public */
   avatar: string;
-  /** Whether the developer is currently open to work */
   availableForWork: boolean;
 }
 
-// ── About ────────────────────────────────────────────────────────────────────
 export interface AboutData {
   bio: string;
-  /** Short bullet highlights shown in the "What I bring" card */
   highlights: string[];
 }
 
-// ── Stats ────────────────────────────────────────────────────────────────────
 export interface StatsItem {
   label: string;
   value: number;
   suffix?: string;
 }
 
-// ── Languages ────────────────────────────────────────────────────────────────
 export interface LanguageItem {
   name: string;
-  /** Proficiency label, e.g. "Native", "Fluent", "Professional" */
-  proficiency: string;
-  /** Proficiency level 0–100 (used for animated bar) */
-  level: number;
+  proficiency: string; // e.g. "Native" | "Fluent" | "Professional"
+  level: number;       // 0–100, drives the animated bar width
 }
 
-// ── Skills ───────────────────────────────────────────────────────────────────
 export interface SkillItem {
   name: string;
-  /** Proficiency 0–100 (used for animated progress bar width) */
-  level: number;
+  level: number; // 0–100, drives the animated progress bar width
 }
 
 export interface SkillCategory {
@@ -57,70 +41,70 @@ export interface SkillCategory {
   items: SkillItem[];
 }
 
-// ── Experience ───────────────────────────────────────────────────────────────
 export interface ExperienceItem {
   id: number;
   role: string;
   company: string;
-  /** Human-readable date range, e.g. "Sep 2025 – Feb 2026" */
-  duration: string;
+  duration: string; // e.g. "Sep 2025 – Feb 2026"
   location: string;
-  /** Employment type shown as a badge, e.g. "Internship" | "Full-time" */
-  type: string;
+  type: string;     // badge label e.g. "Internship" | "Full-time"
   achievements: string[];
   tech: string[];
 }
 
-// ── Education ────────────────────────────────────────────────────────────────
 export interface EducationItem {
   id: number;
   degree: string;
   institution: string;
   location: string;
-  /** Human-readable date range, e.g. "Jun 2021 – Jul 2024" */
-  duration: string;
+  duration: string; // e.g. "Jun 2021 – Jul 2024"
   cgpa: string;
   coursework: string[];
 }
 
-// ── Projects ─────────────────────────────────────────────────────────────────
 export interface ProjectItem {
   id: number;
   title: string;
   description: string;
   tech: string[];
-  /** Optional screenshot path under /public for project card thumbnail */
-  image?: string;
-  /** GitHub repo URL — empty string if private/unavailable */
-  github: string;
-  /** Live demo URL — empty string if not deployed */
-  demo: string;
-  /** Pinned to top and shown with a "Featured" badge */
+  image?: string;   // optional screenshot under /public
+  github: string;   // empty string if private/unavailable
+  demo: string;     // empty string if not deployed
   featured: boolean;
 }
 
-// ── Certifications ───────────────────────────────────────────────────────────
 export interface CertificationItem {
   id: number;
   title: string;
   issuer: string;
-  /** Human-readable date range, e.g. "Jun 2024 – Jun 2025" */
-  duration: string;
+  duration: string; // e.g. "Jun 2024 – Jun 2025"
   description: string;
   skills: string[];
 }
 
-// ── UI Strings ───────────────────────────────────────────────────────────────
+export interface SocialLink {
+  href: string;
+  icon: ReactNode;
+  label: string;
+}
+
+export interface SiteConfig {
+  siteUrl: string;
+  siteName: string;
+  pageTitle: string;
+  metaDescription: string;
+  keywords: string[];
+  ogImage: string;
+  defaultTheme: "dark" | "light";
+  deployRegion: string;
+}
+
+// ── UI String interfaces — shape must match locales/en.json exactly ───────────
+
 export interface NavStrings {
-  home: string;
-  about: string;
-  skills: string;
-  languages: string;
-  experience: string;
-  education: string;
-  projects: string;
-  certifications: string;
-  contact: string;
+  home: string; about: string; skills: string; languages: string;
+  experience: string; education: string; projects: string;
+  certifications: string; contact: string;
 }
 
 export interface HeroStrings {
@@ -131,6 +115,8 @@ export interface HeroStrings {
   intro_prefix: string;
   intro_suffix: string;
   rolling_titles: string[];
+  resume_download_aria_label: string;
+  contact_scroll_aria_label: string;
 }
 
 export interface SectionHeading {
@@ -145,7 +131,7 @@ export interface AboutStrings extends SectionHeading {
 export type SkillsStrings = SectionHeading;
 
 export interface ExperienceStrings extends SectionHeading {
-  type_separator: string; // e.g. "·"
+  type_separator: string;
 }
 
 export interface EducationStrings extends SectionHeading {
@@ -160,26 +146,39 @@ export interface ProjectsStrings extends SectionHeading {
 }
 
 export type CertificationsStrings = SectionHeading;
-
 export type LanguagesStrings = SectionHeading;
 
 export interface ContactStrings extends SectionHeading {
   intro: string;
-  name_label: string;
-  email_label: string;
-  message_label: string;
-  send_button: string;
-  sending: string;
-  success: string;
-  error: string;
-  name_placeholder: string;
-  email_placeholder: string;
-  message_placeholder: string;
+  name_label: string; email_label: string; message_label: string;
+  send_button: string; sending: string;
+  success: string; error: string;
+  name_placeholder: string; email_placeholder: string; message_placeholder: string;
 }
 
 export interface FooterStrings {
   designed_by: string;
   rights: string;
+  back_to_top_label: string;
+  back_to_top_aria: string;
+}
+
+export interface StatsStrings {
+  section_aria_label: string;
+}
+
+export interface NavbarStrings {
+  logo_aria_label: string;
+  primary_nav_aria_label: string;
+  mobile_nav_aria_label: string;
+  toggle_menu_aria_label: string;
+  theme_toggle_to_light: string;
+  theme_toggle_to_dark: string;
+}
+
+export interface SocialStrings {
+  linkedin_label: string; github_label: string; email_label: string;
+  email_aria_label: string; profile_aria_suffix: string;
 }
 
 export interface UIStrings {
@@ -194,22 +193,7 @@ export interface UIStrings {
   languages: LanguagesStrings;
   contact: ContactStrings;
   footer: FooterStrings;
-}
-
-// ── Site Config ──────────────────────────────────────────────────────────────
-export interface SiteConfig {
-  siteUrl: string;
-  siteName: string;
-  /** SEO page <title> */
-  pageTitle: string;
-  /** SEO meta description */
-  metaDescription: string;
-  /** Keywords array for SEO */
-  keywords: string[];
-  /** Path to Open Graph / Twitter card image under /public */
-  ogImage: string;
-  /** Default theme on first visit: "dark" | "light" */
-  defaultTheme: "dark" | "light";
-  /** Vercel deploy region, used in vercel.json */
-  deployRegion: string;
+  stats: StatsStrings;
+  navbar: NavbarStrings;
+  social: SocialStrings;
 }

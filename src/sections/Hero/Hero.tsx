@@ -3,8 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { HiArrowDownTray, HiEnvelope } from "react-icons/hi2";
-import { TextReveal } from "@/components";
-import { personalInfo, strings, socialLinks, featureFlags } from "@/data";
+import { TextReveal, personalInfo, strings, socialLinks, featureFlags } from "@/data";
 import styles from "./Hero.module.css";
 
 const fadeUp = (delay: number) => ({
@@ -45,7 +44,8 @@ export default function Hero() {
             >
               <span className={styles.introLead}>{strings.hero.intro_prefix} </span>
               <span className={styles.introName}>{personalInfo.name}</span>
-              <span className={styles.introTrail}> {strings.hero.intro_suffix}</span>
+              <br />
+              <span className={styles.introTrail}>{strings.hero.intro_suffix}</span>
             </motion.h1>
 
             <motion.div {...fadeUp(0.3)} className={styles.titleRow}>
@@ -62,7 +62,7 @@ export default function Hero() {
                   href={personalInfo.resumePdf}
                   download
                   className={`btn-primary ${styles.ctaBtn}`}
-                  aria-label="Download Resume PDF"
+                  aria-label={strings.hero.resume_download_aria_label}
                 >
                   <HiArrowDownTray size={18} />
                   {strings.hero.cta_resume}
@@ -71,7 +71,7 @@ export default function Hero() {
               <a
                 href="#contact"
                 className={`btn-outline ${styles.ctaBtn}`}
-                aria-label="Go to contact section"
+                aria-label={strings.hero.contact_scroll_aria_label}
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
@@ -89,7 +89,7 @@ export default function Hero() {
                   href={href}
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noopener noreferrer"
-                  aria-label={label === "Email" ? "Send email to Divya" : `${label} profile`}
+                  aria-label={label === strings.social.email_label ? strings.social.email_aria_label : `${label} ${strings.social.profile_aria_suffix}`}
                   className={styles.socialLink}
                   data-platform={label.toLowerCase()}
                 >

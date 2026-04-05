@@ -1,4 +1,6 @@
-.education { background: var(--bg-primary); }
+.education {
+  background: var(--bg-primary);
+}
 
 .grid {
   display: grid;
@@ -71,4 +73,8 @@
   margin-bottom: 0.65rem;
 }
 
-.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}

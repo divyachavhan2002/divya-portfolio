@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ScrollReveal } from "@/components";
-import { projects, strings, featureFlags } from "@/data";
+import { ScrollReveal, projects, strings, featureFlags } from "@/data";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { HiStar } from "react-icons/hi2";
 import styles from "./Projects.module.css";

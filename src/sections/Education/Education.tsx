@@ -1,7 +1,6 @@
 "use client";
 
-import { ScrollReveal } from "@/components";
-import { education, strings } from "@/data";
+import { ScrollReveal, education, strings } from "@/data";
 import { HiAcademicCap, HiCalendarDays, HiStar } from "react-icons/hi2";
 import styles from "./Education.module.css";
 

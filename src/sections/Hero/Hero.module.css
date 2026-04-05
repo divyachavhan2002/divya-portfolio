@@ -69,13 +69,29 @@
 }
 
 @keyframes floatOrb {
-  0%, 100% { transform: translate(0, 0); }
-  50% { transform: translate(15px, -20px); }
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(15px, -20px);
+  }
 }
 
 @keyframes pulseOrb {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+  }
 }
 
 .grid {
@@ -115,8 +131,15 @@
 }
 
 @keyframes pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-  50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
 }
 
 .introHeadline {
@@ -229,11 +252,9 @@
   border-color: color-mix(in srgb, var(--accent) 82%, transparent);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--accent) 16%, transparent),
-    color-mix(in srgb, var(--accent-light) 16%, transparent)
-  );
+  background: linear-gradient(135deg,
+      color-mix(in srgb, var(--accent) 16%, transparent),
+      color-mix(in srgb, var(--accent-light) 16%, transparent));
 }
 
 .socialLink:focus-visible {
@@ -272,9 +293,17 @@
 }
 
 @keyframes iconPulse {
-  0% { transform: scale(1); }
-  60% { transform: scale(1.24); }
-  100% { transform: scale(1.2); }
+  0% {
+    transform: scale(1);
+  }
+
+  60% {
+    transform: scale(1.24);
+  }
+
+  100% {
+    transform: scale(1.2);
+  }
 }
 
 .avatarWrapper {
@@ -305,9 +334,17 @@
 }
 
 @keyframes ringRotate {
-  0% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 106, 247, 0.1); }
-  50% { box-shadow: 0 0 50px var(--accent-glow), 0 0 80px rgba(192, 132, 252, 0.15); }
-  100% { box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 106, 247, 0.1); }
+  0% {
+    box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 106, 247, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 50px var(--accent-glow), 0 0 80px rgba(192, 132, 252, 0.15);
+  }
+
+  100% {
+    box-shadow: 0 0 30px var(--accent-glow), 0 0 60px rgba(124, 106, 247, 0.1);
+  }
 }
 
 .avatarImg {
@@ -405,6 +442,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .orbRight,
   .orbLeft,
   .orbCenter,

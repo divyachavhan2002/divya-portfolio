@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { ScrollReveal } from "@/components";
-import { personalInfo, strings, socialLinks } from "@/data";
+import { ScrollReveal, personalInfo, strings, socialLinks } from "@/data";
 import { HiEnvelope, HiPhone, HiMapPin, HiPaperAirplane } from "react-icons/hi2";
 import styles from "./Contact.module.css";
 

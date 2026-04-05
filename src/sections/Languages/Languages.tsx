@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ScrollReveal } from "@/components";
-import { languages, strings } from "@/data";
+import { ScrollReveal, languages, strings } from "@/data";
 import { HiLanguage } from "react-icons/hi2";
 import styles from "./Languages.module.css";
 

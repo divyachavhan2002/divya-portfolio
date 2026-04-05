@@ -14,7 +14,7 @@ export default function TextReveal({ words, className, intervalMs = 3000 }: Prop
   const shouldReduceMotion = useReducedMotion();
   const safeWords = words.length > 0 ? words : [""];
   const mounted = useSyncExternalStore(
-    () => () => {},
+    () => () => { },
     () => true,
     () => false
   );

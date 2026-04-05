@@ -1,7 +1,6 @@
 "use client";
 
-import { ScrollReveal } from "@/components";
-import { experience, strings } from "@/data";
+import { ScrollReveal, experience, strings } from "@/data";
 import { HiBriefcase, HiCalendarDays, HiCheckCircle } from "react-icons/hi2";
 import styles from "./Experience.module.css";
 

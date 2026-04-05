@@ -1,6 +1,10 @@
-.experience { background: var(--bg-secondary); }
+.experience {
+  background: var(--bg-secondary);
+}
 
-.timeline { position: relative; }
+.timeline {
+  position: relative;
+}
 
 .timelineLine {
   position: absolute;
@@ -18,7 +22,9 @@
   position: relative;
 }
 
-.entry + .entry { margin-top: 2.5rem; }
+.entry+.entry {
+  margin-top: 2.5rem;
+}
 
 .dot {
   flex-shrink: 0;
@@ -34,7 +40,9 @@
   box-shadow: 0 0 0 4px var(--bg-secondary);
 }
 
-.content { flex: 1; }
+.content {
+  flex: 1;
+}
 
 .header {
   display: flex;
@@ -102,8 +110,14 @@
   margin-top: 3px;
 }
 
-.tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
 
 @media (max-width: 640px) {
-  .entry { gap: 1rem; }
+  .entry {
+    gap: 1rem;
+  }
 }

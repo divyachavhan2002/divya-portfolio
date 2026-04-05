@@ -1,12 +1,11 @@
 "use client";
 
-import { ScrollReveal, AnimatedCounter } from "@/components";
-import { stats } from "@/data";
+import { ScrollReveal, AnimatedCounter, stats, strings } from "@/data";
 import styles from "./Stats.module.css";
 
 export default function Stats() {
   return (
-    <section className={styles.stats} aria-label="Quick stats">
+    <section className={styles.stats} aria-label={strings.stats.section_aria_label}>
       <div className="section-inner">
         <div className={styles.grid}>
           {stats.map((item, i) => (

@@ -31,7 +31,37 @@
   font-weight: 700;
 }
 
-.socials { display: flex; gap: 0.75rem; }
+.socials {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.backToTop {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.backToTop:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
 
 .socialIcon {
   width: 2.25rem;

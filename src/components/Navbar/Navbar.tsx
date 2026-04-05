@@ -51,17 +51,15 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
-        {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className={styles.logo}
-          aria-label="Scroll to top"
+          aria-label={strings.navbar.logo_aria_label}
         >
           <span className="gradient-text">DC.</span>
         </button>
 
-        {/* Desktop nav */}
-        <nav className={styles.desktopNav} aria-label="Primary navigation">
+        <nav className={styles.desktopNav} aria-label={strings.navbar.primary_nav_aria_label}>
           {navItems.map((item) => (
             <button
               type="button"
@@ -78,7 +76,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-label={theme === "dark" ? strings.navbar.theme_toggle_to_light : strings.navbar.theme_toggle_to_dark}
               className={styles.themeBtn}
             >
               {theme === "dark" ? <HiSun size={18} /> : <HiMoon size={18} />}
@@ -86,13 +84,12 @@ export default function Navbar() {
           )}
         </nav>
 
-        {/* Mobile controls */}
         <div className={styles.mobileControls}>
           {featureFlags.themeToggle && (
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+              aria-label={theme === "dark" ? strings.navbar.theme_toggle_to_light : strings.navbar.theme_toggle_to_dark}
               className={styles.themeBtn}
             >
               {theme === "dark" ? <HiSun size={18} /> : <HiMoon size={18} />}
@@ -101,7 +98,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
+            aria-label={strings.navbar.toggle_menu_aria_label}
             aria-expanded={mobileOpen}
             aria-controls="mobile-nav"
             className={styles.menuBtn}
@@ -111,9 +108,8 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile drawer */}
       {mobileOpen && (
-        <nav id="mobile-nav" className={styles.mobileDrawer} aria-label="Mobile navigation">
+        <nav id="mobile-nav" className={styles.mobileDrawer} aria-label={strings.navbar.mobile_nav_aria_label}>
           {navItems.map((item) => (
             <button
               type="button"

@@ -1,21 +1,4 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// src/data/resume.ts
-//
-// ✏️  THIS IS THE ONLY FILE YOU NEED TO EDIT to update portfolio content.
-//
-// Every string, number, and URL in here is consumed by components via
-// the barrel export at src/data/index.ts — no component contains hardcoded
-// resume data.  Just update the values below and the entire site updates.
-//
-// Sections:
-//   personalInfo  → Hero, About, Contact, Footer, Navbar social links
-//   about         → About section bio + highlight bullets
-//   skills        → Skills section (categories + proficiency 0-100)
-//   experience    → Experience section timeline
-//   education     → Education section cards
-//   projects      → Projects section cards
-//   certifications→ Certifications section cards
-// ─────────────────────────────────────────────────────────────────────────────
+// ✏️ Edit this file to update all portfolio content — no other file needs changing.
 
 import type {
   PersonalInfo,

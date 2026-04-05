@@ -16,12 +16,14 @@
     "cta_contact": "Contact Me",
     "available_for_work": "Available for Work",
     "intro_prefix": "Hi, I'm",
-    "intro_suffix": "— welcome to my portfolio!",
+    "intro_suffix": "Welcome to my portfolio!",
     "rolling_titles": [
       "React Specialist",
       "Next.js Developer",
       "UI/UX Enthusiast"
-    ]
+    ],
+    "resume_download_aria_label": "Download Resume PDF",
+    "contact_scroll_aria_label": "Go to contact section"
   },
   "about": {
     "section_title": "About Me",
@@ -75,6 +77,26 @@
   },
   "footer": {
     "designed_by": "Designed & Built by",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "back_to_top_label": "↑ Back to Top",
+    "back_to_top_aria": "Scroll back to top"
+  },
+  "stats": {
+    "section_aria_label": "Quick stats"
+  },
+  "navbar": {
+    "logo_aria_label": "Scroll to top",
+    "primary_nav_aria_label": "Primary navigation",
+    "mobile_nav_aria_label": "Mobile navigation",
+    "toggle_menu_aria_label": "Toggle menu",
+    "theme_toggle_to_light": "Switch to light mode",
+    "theme_toggle_to_dark": "Switch to dark mode"
+  },
+  "social": {
+    "linkedin_label": "LinkedIn",
+    "github_label": "GitHub",
+    "email_label": "Email",
+    "email_aria_label": "Send email to Divya",
+    "profile_aria_suffix": "profile"
   }
 }

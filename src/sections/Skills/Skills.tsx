@@ -2,8 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { ScrollReveal } from "@/components";
-import { skills, strings, SKILL_BAR_OBSERVER_MARGIN } from "@/data";
+import { ScrollReveal, skills, strings, SKILL_BAR_OBSERVER_MARGIN } from "@/data";
 import styles from "./Skills.module.css";
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
