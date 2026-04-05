@@ -97,12 +97,6 @@ body {
   letter-spacing: -0.02em;
 }
 
-.section-subtitle {
-  font-size: 1rem;
-  color: var(--text-secondary);
-  margin-bottom: 3rem;
-}
-
 .divider {
   width: 3.5rem;
   height: 3px;

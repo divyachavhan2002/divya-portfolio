@@ -16,7 +16,6 @@ export interface PersonalInfo {
   linkedin: string;
   github: string;
   resumePdf: string;
-  avatar: string;
 }
 
 // ── About ────────────────────────────────────────────────────────────────────
@@ -48,7 +47,6 @@ export interface ExperienceItem {
   location: string;
   /** Employment type shown as a badge, e.g. "Internship" | "Full-time" */
   type: string;
-  description: string;
   achievements: string[];
   tech: string[];
 }
@@ -75,8 +73,6 @@ export interface ProjectItem {
   github: string;
   /** Live demo URL — empty string if not deployed */
   demo: string;
-  /** Relative path to thumbnail under /public, e.g. "/images/projects/foo.png" */
-  image: string;
   /** Pinned to top and shown with a "Featured" badge */
   featured: boolean;
 }
@@ -94,7 +90,6 @@ export interface CertificationItem {
 
 // ── UI Strings ───────────────────────────────────────────────────────────────
 export interface NavStrings {
-  home: string;
   about: string;
   skills: string;
   experience: string;
@@ -108,10 +103,6 @@ export interface HeroStrings {
   greeting: string;
   cta_resume: string;
   cta_contact: string;
-  scroll_hint: string;
-  social_linkedin: string;
-  social_github: string;
-  social_email: string;
 }
 
 export interface SectionHeading {
@@ -172,7 +163,6 @@ export interface UIStrings {
   certifications: CertificationsStrings;
   contact: ContactStrings;
   footer: FooterStrings;
-  backToTop: string;
 }
 
 // ── Site Config ──────────────────────────────────────────────────────────────

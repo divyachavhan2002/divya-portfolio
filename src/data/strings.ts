@@ -13,7 +13,6 @@ import type { UIStrings } from "./types";
 export const strings: UIStrings = {
   // ── Navigation ─────────────────────────────────────────────────────────────
   nav: {
-    home: "Home",
     about: "About",
     skills: "Skills",
     experience: "Experience",
@@ -28,10 +27,6 @@ export const strings: UIStrings = {
     greeting: "Hi, I'm",
     cta_resume: "Download Resume",
     cta_contact: "Contact Me",
-    scroll_hint: "Scroll to explore",
-    social_linkedin: "LinkedIn",
-    social_github: "GitHub",
-    social_email: "Email",
   },
 
   // ── About ──────────────────────────────────────────────────────────────────
@@ -100,6 +95,4 @@ export const strings: UIStrings = {
     designed_by: "Designed & Built by",
     rights: "All rights reserved.",
   },
-
-  backToTop: "Back to top",
 };

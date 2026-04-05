@@ -55,8 +55,6 @@ export const siteConfig: SiteConfig = {
 // Toggle optional UI features without touching component code.
 // ─────────────────────────────────────────────────────────────────────────────
 export const featureFlags = {
-  /** Show animated progress bars on the Skills section */
-  skillProgressBars: true,
   /** Show the "Featured" badge on pinned project cards */
   projectFeaturedBadge: true,
   /** Show the floating Back-to-Top button */

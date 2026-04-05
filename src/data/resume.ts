@@ -37,7 +37,6 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://linkedin.com/in/divyachavhan-8a91b7315",
   github: "https://github.com/divyachavhan2002",
   resumePdf: "/resume/Divya_Chavhan_Resume.pdf",
-  avatar: "/images/avatar.png",
 };
 
 export const about: AboutData = {
@@ -120,8 +119,6 @@ export const experience: ExperienceItem[] = [
     duration: "Sep 2025 – Feb 2026",
     location: "Pune, Maharashtra",
     type: "Internship",
-    description:
-      "Developed a full-featured Video Learning Platform (SaaS) using Next.js and ReactJS, delivering a production-ready web application with end-to-end feature ownership from requirements to deployment.",
     achievements: [
       "Developed a full-featured Video Learning Platform (SaaS) using Next.js and ReactJS with end-to-end feature ownership.",
       "Integrated Google Firebase Authentication for secure user login and session management; built a personalized user dashboard for course registration, progress tracking, and learning resumption.",
@@ -160,7 +157,6 @@ export const projects: ProjectItem[] = [
     tech: ["Next.js", "ReactJS", "Supabase", "Firebase", "Google Auth", "YouTube Player API", "JavaScript"],
     github: "https://github.com/divyachavhan2002",
     demo: "",
-    image: "/images/projects/learnhub.png",
     featured: true,
   },
   {
@@ -171,7 +167,6 @@ export const projects: ProjectItem[] = [
     tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     github: "https://github.com/divyachavhan2002",
     demo: "",
-    image: "/images/projects/portfolio.png",
     featured: false,
   },
   {
@@ -182,7 +177,6 @@ export const projects: ProjectItem[] = [
     tech: ["Azure Functions", "Node.js", "REST API", "ReactJS"],
     github: "https://github.com/divyachavhan2002",
     demo: "",
-    image: "/images/projects/serverless.png",
     featured: false,
   },
 ];
