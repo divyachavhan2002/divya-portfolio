@@ -1,52 +1,16 @@
 "use client";
 
-import { useState, FormEvent } from "react";
 import { ScrollReveal, personalInfo, strings, socialLinks } from "@/data";
-import { HiEnvelope, HiPhone, HiMapPin, HiPaperAirplane } from "react-icons/hi2";
+import { HiEnvelope, HiPhone, HiMapPin } from "react-icons/hi2";
+import { FaWhatsapp } from "react-icons/fa";
 import styles from "./Contact.module.css";
 
-interface FormState {
-  name: string;
-  email: string;
-  message: string;
-}
-
 export default function Contact() {
-  const [form, setForm] = useState<FormState>({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-
-  const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setStatus("sending");
-
-    try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-      if (serviceId && templateId && publicKey) {
-        const emailjs = await import("@emailjs/browser");
-        await emailjs.send(serviceId, templateId, {
-          from_name: form.name,
-          from_email: form.email,
-          message: form.message,
-          to_email: personalInfo.email,
-        }, publicKey);
-      } else {
-        window.open(
-          `mailto:${personalInfo.email}?subject=Portfolio%20Contact%20from%20${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message)}%0A%0AFrom%3A%20${encodeURIComponent(form.email)}`
-        );
-      }
-      setStatus("success");
-      setForm({ name: "", email: "", message: "" });
-    } catch {
-      setStatus("error");
-    }
-  };
+  const phone = personalInfo.phone.replace(/\s+/g, "");
 
   const contactItems = [
     { icon: <HiEnvelope size={18} />, label: personalInfo.email, href: `mailto:${personalInfo.email}` },
-    { icon: <HiPhone size={18} />, label: personalInfo.phone, href: `tel:${personalInfo.phone}` },
+    { icon: <HiPhone size={18} />, label: personalInfo.phone, href: `tel:${phone}` },
     { icon: <HiMapPin size={18} />, label: personalInfo.location, href: undefined },
   ];
 
@@ -92,30 +56,33 @@ export default function Contact() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.2}>
-            <form onSubmit={handleSubmit} className={`card ${styles.form}`} noValidate aria-label="Contact form">
-              <div>
-                <label htmlFor="cf-name" className={styles.fieldLabel}>{strings.contact.name_label}</label>
-                <input id="cf-name" type="text" required placeholder={strings.contact.name_placeholder} value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={styles.input} />
-              </div>
+            <div className={styles.ctaCards}>
+              <a
+                href={`https://wa.me/${phone}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`card ${styles.ctaCard} ${styles.whatsappCard}`}
+                aria-label={strings.contact.whatsapp_cta}
+              >
+                <FaWhatsapp size={28} />
+                <div>
+                  <strong>{strings.contact.whatsapp_cta}</strong>
+                  <span className={styles.ctaSub}>{strings.contact.whatsapp_sub}</span>
+                </div>
+              </a>
 
-              <div>
-                <label htmlFor="cf-email" className={styles.fieldLabel}>{strings.contact.email_label}</label>
-                <input id="cf-email" type="email" required placeholder={strings.contact.email_placeholder} value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={styles.input} />
-              </div>
-
-              <div>
-                <label htmlFor="cf-message" className={styles.fieldLabel}>{strings.contact.message_label}</label>
-                <textarea id="cf-message" required rows={5} placeholder={strings.contact.message_placeholder} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={styles.textarea} />
-              </div>
-
-              <button type="submit" disabled={status === "sending"} className={`btn-primary ${styles.submitBtn}`} aria-label="Send message">
-                <HiPaperAirplane size={17} />
-                {status === "sending" ? strings.contact.sending : strings.contact.send_button}
-              </button>
-
-              {status === "success" && <p role="status" className={styles.success}>{strings.contact.success}</p>}
-              {status === "error" && <p role="alert" className={styles.error}>{strings.contact.error}</p>}
-            </form>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className={`card ${styles.ctaCard} ${styles.emailCard}`}
+                aria-label={strings.contact.email_cta}
+              >
+                <HiEnvelope size={28} />
+                <div>
+                  <strong>{strings.contact.email_cta}</strong>
+                  <span className={styles.ctaSub}>{strings.contact.email_sub}</span>
+                </div>
+              </a>
+            </div>
           </ScrollReveal>
         </div>
       </div>

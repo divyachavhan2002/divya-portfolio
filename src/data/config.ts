@@ -1,4 +1,4 @@
-import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import en from "@/locales/en.json";
 import type { SiteConfig, UIStrings, SocialLink } from "./types";
 import { personalInfo } from "./resume";
@@ -7,9 +7,11 @@ import { personalInfo } from "./resume";
 export const strings: UIStrings = en as UIStrings;
 
 // Social links built from personalInfo so URLs stay in one place
+const waPhone = personalInfo.phone.replace(/\s+/g, "");
 export const socialLinks: SocialLink[] = [
   { href: personalInfo.linkedin, icon: FaLinkedinIn({ size: 17 }), label: "LinkedIn" },
   { href: personalInfo.github, icon: FaGithub({ size: 17 }), label: "GitHub" },
+  { href: `https://wa.me/${waPhone}`, icon: FaWhatsapp({ size: 17 }), label: "WhatsApp" },
   { href: `mailto:${personalInfo.email}`, icon: FaEnvelope({ size: 17 }), label: "Email" },
 ];
 

@@ -2,7 +2,8 @@
 
 A modern, fully responsive personal portfolio website built with **Next.js 16**, **Tailwind CSS**, **Framer Motion**, and **TypeScript**.
 
-🔗 **Live:** [divya-portfolio.vercel.app](https://divya-portfolio.vercel.app)
+🔗 **Live:** [dc-dev-portfolio.vercel.app](https://dc-dev-portfolio.vercel.app)
+📂 **Repo:** [github.com/divyachavhan2002/divya-portfolio](https://github.com/divyachavhan2002/divya-portfolio)
 
 ---
 
@@ -14,7 +15,7 @@ A modern, fully responsive personal portfolio website built with **Next.js 16**,
 | Styling | Tailwind CSS v4 + CSS Custom Properties |
 | Animations | Framer Motion |
 | Icons | React Icons |
-| Contact Form | EmailJS (with mailto fallback) |
+| Contact Form | WhatsApp + Email (direct links) |
 | Deployment | Vercel |
 
 ---
@@ -32,7 +33,7 @@ A modern, fully responsive personal portfolio website built with **Next.js 16**,
 | **Projects** | Cards with tech tags, GitHub and live demo links |
 | **Certifications** | Certification cards with skills and duration |
 | **Languages** | Language proficiency bars |
-| **Contact** | EmailJS form with mailto fallback, social links |
+| **Contact** | WhatsApp and email CTA cards, social links |
 
 ---
 
@@ -93,27 +94,10 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## Contact Form Setup (EmailJS)
-
-1. Sign up at [emailjs.com](https://www.emailjs.com/)
-2. Create an **Email Service** and **Email Template**
-3. Create `.env.local` in the project root:
-
-```env
-NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_xxxxxxx
-NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=template_xxxxxxx
-NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-> Without EmailJS keys configured, the form automatically falls back to a mailto link.
-
----
-
 ## Deployment (Vercel)
 
 1. Push to GitHub
 2. Import the repo on [vercel.com](https://vercel.com)
-3. Add the three EmailJS environment variables in **Vercel Dashboard → Settings → Environment Variables**
 
 The `vercel.json` is pre-configured with the `bom1` (Mumbai) region for best performance.
 

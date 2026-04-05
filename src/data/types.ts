@@ -149,10 +149,10 @@ export type LanguagesStrings = SectionHeading;
 
 export interface ContactStrings extends SectionHeading {
   intro: string;
-  name_label: string; email_label: string; message_label: string;
-  send_button: string; sending: string;
-  success: string; error: string;
-  name_placeholder: string; email_placeholder: string; message_placeholder: string;
+  whatsapp_cta: string;
+  whatsapp_sub: string;
+  email_cta: string;
+  email_sub: string;
 }
 
 export interface FooterStrings {

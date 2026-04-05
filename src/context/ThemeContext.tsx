@@ -16,19 +16,23 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return siteConfig.defaultTheme;
+  const [theme, setTheme] = useState<Theme>(siteConfig.defaultTheme);
+  const [mounted, setMounted] = useState(false);
 
+  // Sync with localStorage after mount to avoid hydration mismatch
+  useEffect(() => {
     const saved = localStorage.getItem("theme");
-    if (saved === "dark" || saved === "light") return saved;
-
-    return siteConfig.defaultTheme;
-  });
+    if (saved === "dark" || saved === "light") {
+      setTheme(saved);
+    }
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
+    if (!mounted) return;
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("theme", theme);
-  }, [theme]);
+  }, [theme, mounted]);
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));

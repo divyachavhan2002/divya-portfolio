@@ -101,6 +101,10 @@
   color: #1a801a;
 }
 
+.socialIcon[data-platform="whatsapp"] .socialIconMark {
+  color: #25d366;
+}
+
 .socialIcon[data-platform="email"] .socialIconMark {
   color: #ea4335;
 }
