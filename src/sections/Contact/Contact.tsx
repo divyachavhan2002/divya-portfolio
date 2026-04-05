@@ -61,7 +61,6 @@ export default function Contact() {
         </ScrollReveal>
 
         <div className={styles.grid}>
-          {/* Info column */}
           <ScrollReveal delay={0.1}>
             <p className={styles.intro}>{strings.contact.intro}</p>
 
@@ -91,7 +90,6 @@ export default function Contact() {
             </div>
           </ScrollReveal>
 
-          {/* Form */}
           <ScrollReveal delay={0.2}>
             <form onSubmit={handleSubmit} className={`card ${styles.form}`} noValidate aria-label="Contact form">
               <div>

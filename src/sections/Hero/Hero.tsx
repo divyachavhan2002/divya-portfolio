@@ -13,34 +13,26 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.6, delay, ease: [0.25, 0.46, 0.45, 0.94] as const },
 });
 
-const rollingTitles = [
-  "React Specialist",
-  "Next.js Developer",
-  "UI/UX Enthusiast",
-];
-
 export default function Hero() {
-  const titleWords = [personalInfo.title, ...rollingTitles.filter((title) => title !== personalInfo.title)];
+  const titleWords = [
+    personalInfo.title,
+    ...strings.hero.rolling_titles.filter((title) => title !== personalInfo.title),
+  ];
 
   return (
     <section id="home" className={styles.hero} aria-labelledby="hero-title">
-      {/* Animated background orbs */}
       <div className={styles.orbRight} aria-hidden="true" />
       <div className={styles.orbLeft} aria-hidden="true" />
       <div className={styles.orbCenter} aria-hidden="true" />
-
-      {/* Grid lines overlay */}
       <div className={styles.gridOverlay} aria-hidden="true" />
 
       <div className={`section-inner ${styles.sectionInner}`}>
         <div className={styles.grid}>
-          {/* Text content */}
           <header className={styles.textCol}>
-            {/* Availability badge */}
             {personalInfo.availableForWork && (
               <motion.div {...fadeUp(0)} className={styles.availBadge}>
                 <span className={styles.availDot} />
-                Available for Work
+                {strings.hero.available_for_work}
               </motion.div>
             )}
 
@@ -51,9 +43,9 @@ export default function Hero() {
               transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
               className={styles.introHeadline}
             >
-              <span className={styles.introLead}>Hi, I&apos;m </span>
+              <span className={styles.introLead}>{strings.hero.intro_prefix} </span>
               <span className={styles.introName}>{personalInfo.name}</span>
-              <span className={styles.introTrail}> — welcome to my portfolio!</span>
+              <span className={styles.introTrail}> {strings.hero.intro_suffix}</span>
             </motion.h1>
 
             <motion.div {...fadeUp(0.3)} className={styles.titleRow}>
@@ -64,7 +56,6 @@ export default function Hero() {
               {personalInfo.tagline}
             </motion.p>
 
-            {/* CTA Buttons */}
             <motion.div {...fadeUp(0.5)} className={styles.ctaGroup}>
               {featureFlags.resumeDownload && (
                 <a
@@ -91,7 +82,6 @@ export default function Hero() {
               </a>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div {...fadeUp(0.6)} className={styles.socialGroup}>
               {socialLinks.map(({ href, icon, label }) => (
                 <a
@@ -110,7 +100,6 @@ export default function Hero() {
             </motion.div>
           </header>
 
-          {/* Avatar Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
             animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -131,7 +120,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

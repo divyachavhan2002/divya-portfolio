@@ -127,6 +127,10 @@ export interface HeroStrings {
   greeting: string;
   cta_resume: string;
   cta_contact: string;
+  available_for_work: string;
+  intro_prefix: string;
+  intro_suffix: string;
+  rolling_titles: string[];
 }
 
 export interface SectionHeading {

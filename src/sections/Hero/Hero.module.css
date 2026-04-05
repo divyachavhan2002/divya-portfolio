@@ -21,7 +21,6 @@
   overflow: clip;
 }
 
-/* ── Subtle grid overlay ────────────────────────────────────────────────── */
 .gridOverlay {
   position: absolute;
   inset: 0;
@@ -35,7 +34,6 @@
   -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
 }
 
-/* ── Animated glow orbs ─────────────────────────────────────────────────── */
 .orbRight {
   position: absolute;
   top: 10%;
@@ -80,7 +78,6 @@
   50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
 }
 
-/* ── Layout ─────────────────────────────────────────────────────────────── */
 .grid {
   display: flex;
   align-items: center;
@@ -94,7 +91,6 @@
   min-width: 0;
 }
 
-/* ── Availability badge ─────────────────────────────────────────────────── */
 .availBadge {
   display: inline-flex;
   align-items: center;
@@ -123,7 +119,6 @@
   50% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
 }
 
-/* ── Text content ───────────────────────────────────────────────────────── */
 .introHeadline {
   max-inline-size: min(100%, 46rem);
   font-size: clamp(1.55rem, 4.4vw, 3.1rem);
@@ -174,7 +169,6 @@
   margin-bottom: 2rem;
 }
 
-/* ── CTA Buttons ────────────────────────────────────────────────────────── */
 .ctaGroup {
   display: flex;
   gap: 1rem;
@@ -205,7 +199,6 @@
   height: 300px;
 }
 
-/* ── Social links ───────────────────────────────────────────────────────── */
 .socialGroup {
   display: flex;
   gap: 1rem;
@@ -284,7 +277,6 @@
   100% { transform: scale(1.2); }
 }
 
-/* ── Avatar ─────────────────────────────────────────────────────────────── */
 .avatarWrapper {
   flex: 0 0 auto;
   position: relative;
@@ -326,7 +318,6 @@
   background: var(--bg-secondary);
 }
 
-/* ── Scroll indicator ───────────────────────────────────────────────────── */
 .scrollIndicator {
   position: absolute;
   bottom: clamp(0.5rem, 2.5vh, 2rem);
@@ -354,7 +345,6 @@
   background: var(--accent);
 }
 
-/* ── Responsive ─────────────────────────────────────────────────────────── */
 @media (max-width: 1023px) {
   .grid {
     gap: 2rem;

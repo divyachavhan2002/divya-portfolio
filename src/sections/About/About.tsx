@@ -22,7 +22,6 @@ export default function About() {
         </ScrollReveal>
 
         <div className={styles.grid}>
-          {/* Bio */}
           <ScrollReveal delay={0.1}>
             <p className={styles.bio}>{about.bio}</p>
 
@@ -36,7 +35,6 @@ export default function About() {
             </div>
           </ScrollReveal>
 
-          {/* Highlights */}
           <ScrollReveal delay={0.2}>
             <div className="card">
               <h3 className={styles.highlightTitle}>{strings.about.highlights_heading}</h3>

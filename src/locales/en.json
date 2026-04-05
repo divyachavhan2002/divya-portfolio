@@ -1,0 +1,80 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "languages": "Languages",
+    "experience": "Experience",
+    "education": "Education",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "cta_resume": "Download Resume",
+    "cta_contact": "Contact Me",
+    "available_for_work": "Available for Work",
+    "intro_prefix": "Hi, I'm",
+    "intro_suffix": "— welcome to my portfolio!",
+    "rolling_titles": [
+      "React Specialist",
+      "Next.js Developer",
+      "UI/UX Enthusiast"
+    ]
+  },
+  "about": {
+    "section_title": "About Me",
+    "section_subtitle": "Who I am & what I do",
+    "highlights_heading": "What I bring to the table"
+  },
+  "skills": {
+    "section_title": "Technical Skills",
+    "section_subtitle": "Technologies & tools I work with"
+  },
+  "experience": {
+    "section_title": "Work Experience",
+    "section_subtitle": "My professional journey",
+    "type_separator": "·"
+  },
+  "education": {
+    "section_title": "Education",
+    "section_subtitle": "Academic background",
+    "cgpa_label": "CGPA:",
+    "coursework_label": "Relevant Coursework:"
+  },
+  "projects": {
+    "section_title": "Projects",
+    "section_subtitle": "Things I've built",
+    "view_code": "View Code",
+    "live_demo": "Live Demo",
+    "featured_label": "Featured"
+  },
+  "certifications": {
+    "section_title": "Certifications",
+    "section_subtitle": "Professional achievements"
+  },
+  "languages": {
+    "section_title": "Languages",
+    "section_subtitle": "Proficient in communication"
+  },
+  "contact": {
+    "section_title": "Get In Touch",
+    "section_subtitle": "Let's work together",
+    "intro": "I'm open to new opportunities. Whether you have a project idea, want to collaborate, or just want to say hi — my inbox is always open!",
+    "name_label": "Full Name",
+    "email_label": "Email Address",
+    "message_label": "Message",
+    "send_button": "Send Message",
+    "sending": "Sending...",
+    "success": "Message sent successfully! I'll get back to you soon.",
+    "error": "Something went wrong. Please try again or email me directly.",
+    "name_placeholder": "Your name",
+    "email_placeholder": "your@email.com",
+    "message_placeholder": "Your message..."
+  },
+  "footer": {
+    "designed_by": "Designed & Built by",
+    "rights": "All rights reserved."
+  }
+}

@@ -1,49 +1,27 @@
-// ─────────────────────────────────────────────────────────────────────────────
-// src/data/constants.ts
-//
-// Reusable magic values, thresholds, and shared configuration objects used
-// across multiple components. Centralising them here eliminates scattered
-// hard-coded numbers and repeated data structures.
-//
-// Why?
-//   • Change the navbar scroll threshold in ONE place, not inside Navbar.tsx.
-//   • Social links are defined ONCE, consumed by Hero, Contact, and Footer.
-//   • Animation timing is consistent across all ScrollReveal usages.
-// ─────────────────────────────────────────────────────────────────────────────
-
 import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 import { personalInfo } from "./resume";
 import type { ReactNode } from "react";
+import {
+  NAVBAR_SCROLL_THRESHOLD,
+  BACK_TO_TOP_THRESHOLD,
+  NAV_OBSERVER_MARGIN,
+  REVEAL_OBSERVER_MARGIN,
+  SKILL_BAR_OBSERVER_MARGIN,
+  REVEAL_DURATION,
+  REVEAL_OFFSET,
+  REVEAL_X_OFFSET,
+} from "@/config";
 
-// ── Scroll / Intersection ────────────────────────────────────────────────────
-
-/** Pixel threshold before the navbar shows a solid background */
-export const NAVBAR_SCROLL_THRESHOLD = 20;
-
-/** Pixel threshold before the "Back to top" button becomes visible */
-export const BACK_TO_TOP_THRESHOLD = 400;
-
-/** IntersectionObserver rootMargin for active-section detection in Navbar */
-export const NAV_OBSERVER_MARGIN = "-40% 0px -55% 0px";
-
-/** IntersectionObserver margin used by ScrollReveal / Skills bar triggers */
-export const REVEAL_OBSERVER_MARGIN = "-80px";
-
-/** IntersectionObserver margin for skill-bar in-view trigger */
-export const SKILL_BAR_OBSERVER_MARGIN = "-50px";
-
-// ── Animation defaults ───────────────────────────────────────────────────────
-
-/** Standard reveal animation duration (seconds) used by ScrollReveal */
-export const REVEAL_DURATION = 0.6;
-
-/** Standard reveal Y-offset (pixels) for the "up" direction */
-export const REVEAL_OFFSET = 40;
-
-/** Standard reveal X-offset (pixels) for "left" / "right" directions */
-export const REVEAL_X_OFFSET = 40;
-
-// ── Social links (shared across Hero / Contact / Footer) ─────────────────────
+export {
+  NAVBAR_SCROLL_THRESHOLD,
+  BACK_TO_TOP_THRESHOLD,
+  NAV_OBSERVER_MARGIN,
+  REVEAL_OBSERVER_MARGIN,
+  SKILL_BAR_OBSERVER_MARGIN,
+  REVEAL_DURATION,
+  REVEAL_OFFSET,
+  REVEAL_X_OFFSET,
+};
 
 export interface SocialLink {
   href: string;
