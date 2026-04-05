@@ -3,7 +3,7 @@
 .footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--border);
-  padding: 2.5rem 1.5rem;
+  padding: 2.25rem 1.25rem;
 }
 
 .inner {
@@ -18,10 +18,12 @@
 
 .copy {
   color: var(--text-secondary);
-  font-size: 0.88rem;
+  font-size: 0.83rem;
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .author {
@@ -35,17 +37,51 @@
   width: 2.25rem;
   height: 2.25rem;
   border-radius: 9999px;
-  background: var(--bg-card);
+  background: color-mix(in srgb, var(--bg-card) 88%, transparent);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .socialIcon:hover {
-  color: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.socialIcon:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 82%, white 18%);
+  outline-offset: 3px;
+}
+
+.socialIconMark {
+  display: inline-flex;
+  transition: all 0.3s ease;
+}
+
+.socialIcon[data-platform="linkedin"] .socialIconMark {
+  color: #0a66c2;
+}
+
+.socialIcon[data-platform="github"] .socialIconMark {
+  color: #1a801a;
+}
+
+.socialIcon[data-platform="email"] .socialIconMark {
+  color: #ea4335;
+}
+
+.socialIcon:hover .socialIconMark {
+  transform: scale(1.2);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    justify-content: center;
+    text-align: center;
+  }
 }

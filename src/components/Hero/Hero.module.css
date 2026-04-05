@@ -1,19 +1,24 @@
 /* ── Hero.module.css ────────────────────────────────────────────────────── */
 
 .hero {
-  min-height: 100vh;
+  --hero-min-block: min(100svh, 54rem);
+  --orb-float-duration-right: 8s;
+  --orb-float-duration-left: 10s;
+  --orb-pulse-duration: 6s;
+  min-height: var(--hero-min-block);
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   background: var(--bg-primary);
-  padding-top: 5rem;
+  padding-block: clamp(6.25rem, 13vh, 8.5rem) clamp(2.2rem, 5vh, 3.2rem);
 }
 
 .sectionInner {
   width: 100%;
   position: relative;
   z-index: 2;
+  overflow: clip;
 }
 
 /* ── Subtle grid overlay ────────────────────────────────────────────────── */
@@ -24,7 +29,7 @@
     linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 60px 60px;
-  opacity: 0.3;
+  opacity: 0.38;
   pointer-events: none;
   mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
@@ -35,22 +40,22 @@
   position: absolute;
   top: 10%;
   right: 5%;
-  width: 35rem;
-  height: 35rem;
-  background: radial-gradient(circle, rgba(124, 106, 247, 0.18) 0%, transparent 70%);
+  width: 42rem;
+  height: 42rem;
+  background: radial-gradient(circle, rgba(143, 125, 255, 0.22) 0%, transparent 70%);
   pointer-events: none;
-  animation: floatOrb 8s ease-in-out infinite;
+  animation: floatOrb var(--orb-float-duration-right) ease-in-out infinite;
 }
 
 .orbLeft {
   position: absolute;
   bottom: 5%;
   left: -8%;
-  width: 25rem;
-  height: 25rem;
-  background: radial-gradient(circle, rgba(192, 132, 252, 0.12) 0%, transparent 70%);
+  width: 31rem;
+  height: 31rem;
+  background: radial-gradient(circle, rgba(194, 141, 255, 0.14) 0%, transparent 70%);
   pointer-events: none;
-  animation: floatOrb 10s ease-in-out infinite reverse;
+  animation: floatOrb var(--orb-float-duration-left) ease-in-out infinite reverse;
 }
 
 .orbCenter {
@@ -58,11 +63,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40rem;
-  height: 40rem;
-  background: radial-gradient(circle, rgba(124, 106, 247, 0.06) 0%, transparent 60%);
+  width: 46rem;
+  height: 46rem;
+  background: radial-gradient(circle, rgba(143, 125, 255, 0.08) 0%, transparent 62%);
   pointer-events: none;
-  animation: pulseOrb 6s ease-in-out infinite;
+  animation: pulseOrb var(--orb-pulse-duration) ease-in-out infinite;
 }
 
 @keyframes floatOrb {
@@ -80,7 +85,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 3rem;
+  gap: clamp(2.2rem, 6vw, 4.5rem);
   flex-wrap: wrap;
 }
 
@@ -119,45 +124,53 @@
 }
 
 /* ── Text content ───────────────────────────────────────────────────────── */
-.greeting {
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
+.introHeadline {
+  max-inline-size: min(100%, 46rem);
+  font-size: clamp(1.55rem, 4.4vw, 3.1rem);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-wrap: pretty;
 }
 
-.name {
-  font-size: clamp(2.4rem, 6vw, 4rem);
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin-bottom: 0.5rem;
+.introLead,
+.introTrail {
   color: var(--text-primary);
+}
+
+.introName {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
 }
 
 .titleRow {
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
-  margin-bottom: 1.25rem;
-}
-
-.titlePrefix {
-  font-size: clamp(1.2rem, 3vw, 1.75rem);
-  font-weight: 700;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+  max-inline-size: min(100%, 34rem);
+  overflow: hidden;
 }
 
 .title {
-  font-size: clamp(1.2rem, 3vw, 1.75rem);
-  font-weight: 700;
+  display: inline-block;
+  font-size: clamp(1.35rem, 3.4vw, 2rem);
+  font-weight: 800;
+  line-height: 1.3;
+  max-inline-size: 100%;
 }
 
 .tagline {
   color: var(--text-secondary);
-  font-size: 1.05rem;
-  line-height: 1.8;
-  max-width: 520px;
+  font-size: clamp(0.98rem, 1.6vw, 1.15rem);
+  line-height: 1.85;
+  max-width: 640px;
   margin-bottom: 2rem;
 }
 
@@ -166,7 +179,7 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .ctaBtn {
@@ -197,26 +210,78 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .socialLink {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  justify-content: center;
+  gap: 0.55rem;
   color: var(--text-secondary);
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-  padding: 0.4rem 0.8rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: all 0.3s ease;
+  padding: 0.48rem 0.86rem;
+  min-height: 48px;
   border-radius: 9999px;
   border: 1px solid var(--border);
-  background: var(--bg-card);
+  background: color-mix(in srgb, var(--bg-card) 92%, transparent);
 }
 
 .socialLink:hover {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--text-primary);
+  border-color: color-mix(in srgb, var(--accent) 82%, transparent);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent) 16%, transparent),
+    color-mix(in srgb, var(--accent-light) 16%, transparent)
+  );
+}
+
+.socialLink:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 82%, white 18%);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-glow) 70%, transparent);
+}
+
+.socialIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+}
+
+.socialLabel {
+  color: inherit;
+}
+
+.socialLink[data-platform="linkedin"] .socialIcon {
+  color: #0a66c2;
+}
+
+.socialLink[data-platform="github"] .socialIcon {
+  color: #1a801a;
+}
+
+.socialLink[data-platform="email"] .socialIcon {
+  color: #ea4335;
+}
+
+.socialLink:hover .socialIcon {
+  transform: scale(1.2);
+  animation: iconPulse 0.45s ease;
+}
+
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  60% { transform: scale(1.24); }
+  100% { transform: scale(1.2); }
 }
 
 /* ── Avatar ─────────────────────────────────────────────────────────────── */
@@ -230,8 +295,8 @@
   inset: -20px;
   border-radius: 50%;
   background: var(--gradient);
-  opacity: 0.15;
-  filter: blur(40px);
+  opacity: 0.24;
+  filter: blur(52px);
   animation: pulseOrb 4s ease-in-out infinite;
 }
 
@@ -241,7 +306,7 @@
   border-radius: 50%;
   background: var(--gradient);
   padding: 4px;
-  box-shadow: 0 0 50px var(--accent-glow);
+  box-shadow: 0 0 70px var(--accent-glow);
   position: relative;
   z-index: 1;
   animation: ringRotate 12s linear infinite;
@@ -264,7 +329,7 @@
 /* ── Scroll indicator ───────────────────────────────────────────────────── */
 .scrollIndicator {
   position: absolute;
-  bottom: 2rem;
+  bottom: clamp(0.5rem, 2.5vh, 2rem);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -290,24 +355,53 @@
 }
 
 /* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  .grid {
+    gap: 2rem;
+  }
+
+  .tagline {
+    max-width: 100%;
+  }
+
+  .introHeadline {
+    font-size: clamp(1.35rem, 5vw, 2.3rem);
+    max-inline-size: 100%;
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding-block: 5.4rem 2rem;
+  }
+
   .grid {
     flex-direction: column-reverse;
     text-align: center;
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
   .titleRow {
     justify-content: center;
+    margin-inline: auto;
+  }
+
+  .introHeadline {
+    margin-inline: auto;
   }
 
   .socialGroup {
     justify-content: center;
-    flex-wrap: wrap;
   }
 
   .ctaGroup {
     justify-content: center;
+    margin-bottom: 1.75rem;
   }
 
   .availBadge {
@@ -317,5 +411,21 @@
 
   .scrollIndicator {
     display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbRight,
+  .orbLeft,
+  .orbCenter,
+  .availDot,
+  .avatarGlow,
+  .avatarRing {
+    animation: none !important;
+  }
+
+  .ctaBtn::before,
+  .socialLink {
+    transition: none !important;
   }
 }

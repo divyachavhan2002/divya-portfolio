@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ScrollReveal } from "@/components";
 import { projects, strings, featureFlags } from "@/data";
@@ -32,10 +33,20 @@ export default function Projects() {
                   </span>
                 )}
 
-                <div className={styles.thumbnail} aria-hidden="true">
-                  <span className={styles.thumbnailLabel}>
-                    {project.title.slice(0, 2).toUpperCase()}
-                  </span>
+                <div className={`${styles.thumbnail} ${project.image ? styles.thumbnailWithImage : ""}`}>
+                  {project.image ? (
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} UI preview`}
+                      fill
+                      className={styles.thumbnailImage}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <span className={styles.thumbnailLabel}>
+                      {project.title.slice(0, 2).toUpperCase()}
+                    </span>
+                  )}
                 </div>
 
                 <h3 className={styles.title}>{project.title}</h3>

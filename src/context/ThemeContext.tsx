@@ -16,20 +16,22 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(siteConfig.defaultTheme);
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return siteConfig.defaultTheme;
+
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark" || saved === "light") return saved;
+
+    return siteConfig.defaultTheme;
+  });
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
-    const preferred = saved ?? siteConfig.defaultTheme;
-    setTheme(preferred);
-    document.documentElement.setAttribute("data-theme", preferred);
-  }, []);
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    setTheme(next);
-    localStorage.setItem("theme", next);
-    document.documentElement.setAttribute("data-theme", next);
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   return (

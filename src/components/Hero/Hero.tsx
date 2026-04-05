@@ -14,15 +14,16 @@ const fadeUp = (delay: number) => ({
 });
 
 const rollingTitles = [
-  "Full Stack Developer",
   "React Specialist",
   "Next.js Developer",
   "UI/UX Enthusiast",
 ];
 
 export default function Hero() {
+  const titleWords = [personalInfo.title, ...rollingTitles.filter((title) => title !== personalInfo.title)];
+
   return (
-    <section id="home" className={styles.hero}>
+    <section id="home" className={styles.hero} aria-labelledby="hero-title">
       {/* Animated background orbs */}
       <div className={styles.orbRight} aria-hidden="true" />
       <div className={styles.orbLeft} aria-hidden="true" />
@@ -34,7 +35,7 @@ export default function Hero() {
       <div className={`section-inner ${styles.sectionInner}`}>
         <div className={styles.grid}>
           {/* Text content */}
-          <div className={styles.textCol}>
+          <header className={styles.textCol}>
             {/* Availability badge */}
             {personalInfo.availableForWork && (
               <motion.div {...fadeUp(0)} className={styles.availBadge}>
@@ -43,25 +44,28 @@ export default function Hero() {
               </motion.div>
             )}
 
-            <motion.p {...fadeUp(0.1)} className={styles.greeting}>
-              {strings.hero.greeting}
-            </motion.p>
-
-            <motion.h1 {...fadeUp(0.15)} className={styles.name}>
-              {personalInfo.name}
+            <motion.h1
+              id="hero-title"
+              initial={{ opacity: 0, y: 18, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.75, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] as const }}
+              className={styles.introHeadline}
+            >
+              <span className={styles.introLead}>Hi, I&apos;m </span>
+              <span className={styles.introName}>{personalInfo.name}</span>
+              <span className={styles.introTrail}> — welcome to my portfolio!</span>
             </motion.h1>
 
-            <motion.div {...fadeUp(0.25)} className={styles.titleRow}>
-              <span className={`gradient-text ${styles.titlePrefix}`}>I&apos;m a </span>
-              <TextReveal words={rollingTitles} className={`gradient-text ${styles.title}`} />
+            <motion.div {...fadeUp(0.3)} className={styles.titleRow}>
+              <TextReveal words={titleWords} intervalMs={2600} className={`gradient-text ${styles.title}`} />
             </motion.div>
 
-            <motion.p {...fadeUp(0.35)} className={styles.tagline}>
+            <motion.p {...fadeUp(0.4)} className={styles.tagline}>
               {personalInfo.tagline}
             </motion.p>
 
             {/* CTA Buttons */}
-            <motion.div {...fadeUp(0.45)} className={styles.ctaGroup}>
+            <motion.div {...fadeUp(0.5)} className={styles.ctaGroup}>
               {featureFlags.resumeDownload && (
                 <a
                   href={personalInfo.resumePdf}
@@ -88,22 +92,23 @@ export default function Hero() {
             </motion.div>
 
             {/* Social Links */}
-            <motion.div {...fadeUp(0.55)} className={styles.socialGroup}>
+            <motion.div {...fadeUp(0.6)} className={styles.socialGroup}>
               {socialLinks.map(({ href, icon, label }) => (
                 <a
                   key={label}
                   href={href}
                   target={href.startsWith("mailto") ? undefined : "_blank"}
                   rel="noopener noreferrer"
-                  aria-label={`${label} profile`}
+                  aria-label={label === "Email" ? "Send email to Divya" : `${label} profile`}
                   className={styles.socialLink}
+                  data-platform={label.toLowerCase()}
                 >
-                  {icon}
-                  <span>{label}</span>
+                  <span className={styles.socialIcon} aria-hidden="true">{icon}</span>
+                  <span className={styles.socialLabel}>{label}</span>
                 </a>
               ))}
             </motion.div>
-          </div>
+          </header>
 
           {/* Avatar Image */}
           <motion.div
@@ -132,6 +137,7 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
           className={styles.scrollIndicator}
+          aria-hidden="true"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}

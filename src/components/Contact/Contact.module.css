@@ -13,7 +13,7 @@
   color: var(--text-secondary);
   line-height: 1.9;
   margin-bottom: 2rem;
-  font-size: 0.97rem;
+  font-size: 1rem;
 }
 
 .contactList {
@@ -30,10 +30,13 @@
   color: var(--text-secondary);
   text-decoration: none;
   font-size: 0.92rem;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, transform 0.2s ease;
 }
 
-.contactItem:hover { color: var(--accent); }
+.contactItem:hover {
+  color: var(--accent);
+  transform: translateX(2px);
+}
 
 .contactIcon {
   width: 2.25rem;
@@ -54,19 +57,46 @@
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
-  background: var(--bg-card);
+  background: color-mix(in srgb, var(--bg-card) 88%, transparent);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
   text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .socialCircle:hover {
-  color: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.socialCircle:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 82%, white 18%);
+  outline-offset: 3px;
+}
+
+.socialIconMark {
+  display: inline-flex;
+  transition: all 0.3s ease;
+}
+
+.socialCircle[data-platform="linkedin"] .socialIconMark {
+  color: #0a66c2;
+}
+
+.socialCircle[data-platform="github"] .socialIconMark {
+  color: #1a801a;
+}
+
+.socialCircle[data-platform="email"] .socialIconMark {
+  color: #ea4335;
+}
+
+.socialCircle:hover .socialIconMark {
+  transform: scale(1.2);
 }
 
 /* Form */
@@ -90,7 +120,7 @@
 .textarea {
   width: 100%;
   padding: 0.8rem 1rem;
-  background: var(--bg-secondary);
+  background: color-mix(in srgb, var(--bg-card) 76%, transparent);
   border: 1.5px solid var(--border);
   border-radius: 0.65rem;
   color: var(--text-primary);

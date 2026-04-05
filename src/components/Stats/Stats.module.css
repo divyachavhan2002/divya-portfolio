@@ -1,5 +1,5 @@
 .stats {
-  padding: 4rem 0;
+  padding-block: clamp(2.5rem, 6vw, 4rem);
   background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
@@ -39,8 +39,8 @@
   align-items: center;
   text-align: center;
   padding: 1.5rem 1rem;
-  border-radius: 1rem;
-  background: var(--bg-card);
+  border-radius: var(--card-radius);
+  background: color-mix(in srgb, var(--bg-card) 92%, transparent);
   border: 1px solid var(--border);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -51,8 +51,8 @@
 }
 
 .value {
-  font-size: clamp(2rem, 4vw, 2.75rem);
-  font-weight: 800;
+  font-size: clamp(2.1rem, 4vw, 2.9rem);
+  font-weight: 900;
   background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
@@ -62,16 +62,21 @@
 }
 
 .label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+
+  .statCard {
+    padding: 1.1rem 0.75rem;
   }
 }
 

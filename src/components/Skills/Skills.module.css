@@ -7,16 +7,16 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.75rem;
+  gap: 1.35rem;
 }
 
 .categoryTitle {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 1.25rem;
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--accent-light);
+  margin-bottom: 1.35rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
 }
 
 .skillRow {
@@ -30,19 +30,19 @@
 }
 
 .skillName {
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   color: var(--text-primary);
-  font-weight: 500;
-}
-
-.skillLevel {
-  font-size: 0.8rem;
-  color: var(--accent);
   font-weight: 600;
 }
 
+.skillLevel {
+  font-size: 0.82rem;
+  color: var(--accent-light);
+  font-weight: 700;
+}
+
 .barTrack {
-  height: 6px;
+  height: 7px;
   background: var(--border);
   border-radius: 9999px;
   overflow: hidden;

@@ -39,7 +39,7 @@ export const personalInfo: PersonalInfo = {
   linkedin: "https://linkedin.com/in/divyachavhan-8a91b7315",
   github: "https://github.com/divyachavhan2002",
   resumePdf: "/resume/Divya_Chavhan_Resume.pdf",
-  avatar: "/images/avatar.png",
+  avatar: "/images/avatar.jpg",
   availableForWork: true,
 };
 
@@ -57,15 +57,15 @@ export const skills: SkillCategory[] = [
   {
     category: "Frontend",
     items: [
-      { name: "HTML5", level: 95 },
-      { name: "CSS3", level: 92 },
+      { name: "HTML5", level: 100 },
+      { name: "CSS3", level: 100 },
       { name: "JavaScript (ES6+)", level: 90 },
       { name: "TypeScript", level: 85 },
       { name: "ReactJS", level: 90 },
       { name: "Next.js", level: 88 },
       { name: "React Hooks", level: 90 },
       { name: "Context API", level: 85 },
-      { name: "Responsive Design", level: 92 },
+      { name: "Responsive Design", level: 100 },
     ],
   },
   {
@@ -73,8 +73,11 @@ export const skills: SkillCategory[] = [
     items: [
       { name: "Node.js", level: 80 },
       { name: "Express.js", level: 78 },
-      { name: "RESTful APIs", level: 85 },
-      { name: "Java / Core Java", level: 72 },
+      { name: "RESTful APIs", level: 100 },
+      { name: "Java", level: 80 },
+      { name: "Core Java", level: 80 },
+      { name: "Hibernate", level: 75 },
+      { name: "Spring Boot", level: 78 },
     ],
   },
   {
@@ -107,10 +110,10 @@ export const skills: SkillCategory[] = [
   {
     category: "Practices",
     items: [
-      { name: "Agile / Scrum", level: 85 },
+      { name: "Agile / Scrum", level: 100 },
       { name: "SOLID Principles", level: 78 },
       { name: "Code Reviews", level: 82 },
-      { name: "Technical Docs", level: 80 },
+      { name: "Technical Docs", level: 100 },
     ],
   },
 ];
@@ -159,19 +162,21 @@ export const projects: ProjectItem[] = [
     description:
       "A SaaS e-learning platform with user authentication, course registration, a personalized dashboard, and in-app video streaming using YouTube Player API. Implemented full CRUD operations for course management with Supabase and Firebase Firestore; maintained responsive and cross-browser compatible UI throughout.",
     tech: ["Next.js", "ReactJS", "Supabase", "Firebase", "Google Auth", "YouTube Player API", "JavaScript"],
-    github: "https://github.com/divyachavhan2002",
-    demo: "",
+    image: "/images/video_learning_hub.png",
+    github: "https://github.com/divyachavhan2002/video-learning-app",
+    demo: "https://learnhub-online-courses.vercel.app/",
     featured: true,
   },
   {
-    id: 2,
-    title: "Personal Portfolio Website",
+    id: 4,
+    title: "TaskFlow — Todo List App",
     description:
-      "Designed and deployed a responsive personal portfolio with focus on page-load performance, semantic markup, and cross-platform rendering consistency.",
-    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
-    github: "https://github.com/divyachavhan2002",
-    demo: "",
-    featured: false,
+      "A clean, feature-rich Todo List app with priority levels (High/Medium/Low), due dates, inline editing, search & filter, progress tracking, dark mode, and undo/redo support. All data persists in localStorage with toast notifications for every action. Fully responsive across devices.",
+    tech: ["React.js", "CSS3", "localStorage", "Responsive Design"],
+    image: "/images/To_Do_App.png",
+    github: "https://github.com/divyachavhan2002/todo-list-app",
+    demo: "https://todo-list-app-taskflow.vercel.app",
+    featured: true,
   },
   {
     id: 3,
@@ -184,14 +189,14 @@ export const projects: ProjectItem[] = [
     featured: false,
   },
   {
-    id: 4,
-    title: "TaskFlow — Todo List App",
+    id: 2,
+    title: "Personal Portfolio Website",
     description:
-      "A clean, feature-rich Todo List app with priority levels (High/Medium/Low), due dates, inline editing, search & filter, progress tracking, dark mode, and undo/redo support. All data persists in localStorage with toast notifications for every action. Fully responsive across devices.",
-    tech: ["React.js", "CSS3", "localStorage", "Responsive Design"],
-    github: "https://github.com/divyachavhan2002/todo-list-app",
-    demo: "https://todo-list-app-taskflow.vercel.app",
-    featured: true,
+      "Designed and deployed a responsive personal portfolio with focus on page-load performance, semantic markup, and cross-platform rendering consistency.",
+    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    github: "https://github.com/divyachavhan2002",
+    demo: "",
+    featured: false,
   },
 ];
 
@@ -202,8 +207,8 @@ export const certifications: CertificationItem[] = [
     issuer: "Giri's TECH HUB Pvt. Ltd., Pune",
     duration: "Jun 2024 – Jun 2025",
     description:
-      "Completed hands-on training in JavaScript, TypeScript, ReactJS (Hooks, Context API), Node.js, Express.js, REST APIs, MongoDB, and Azure Functions. Wrote unit tests using JEST, practiced Agile/Scrum workflows, and applied secure coding and web performance optimization techniques.",
-    skills: ["JavaScript", "TypeScript", "ReactJS", "Node.js", "Express.js", "MongoDB", "Azure Functions", "JEST"],
+      "Completed hands-on training in Java, Core Java, Hibernate, Spring Boot, JavaScript, TypeScript, ReactJS (Hooks, Context API), Node.js, Express.js, REST APIs, MongoDB, and Azure Functions. Wrote unit tests using JEST, practiced Agile/Scrum workflows, and applied secure coding and web performance optimization techniques.",
+    skills: ["Java", "Core Java", "Hibernate", "Spring Boot", "JavaScript", "TypeScript", "ReactJS", "Node.js", "Express.js", "REST APIs", "MongoDB", "Azure Functions", "JEST"],
   },
 ];
 
@@ -218,6 +223,6 @@ export const languages: LanguageItem[] = [
 export const stats: StatsItem[] = [
   { label: "Projects Built", value: 4, suffix: "+" },
   { label: "Months Experience", value: 6, suffix: "+" },
-  { label: "Technologies", value: 15, suffix: "+" },
-  { label: "CGPA Score", value: 8.99, suffix: "" },
+  { label: "Technologies", value: 20, suffix: "+" },
+  { label: "CGPA Score", value: 8.99, suffix: " A+" },
 ];

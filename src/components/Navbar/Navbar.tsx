@@ -7,13 +7,14 @@ import { HiSun, HiMoon, HiBars3, HiXMark } from "react-icons/hi2";
 import styles from "./Navbar.module.css";
 
 const navItems = [
+  { label: strings.nav.home, href: "#home" },
   { label: strings.nav.about, href: "#about" },
   { label: strings.nav.skills, href: "#skills" },
-  { label: strings.nav.languages, href: "#languages" },
   { label: strings.nav.experience, href: "#experience" },
   { label: strings.nav.education, href: "#education" },
   { label: strings.nav.projects, href: "#projects" },
   { label: strings.nav.certifications, href: "#certifications" },
+  { label: strings.nav.languages, href: "#languages" },
   { label: strings.nav.contact, href: "#contact" },
 ];
 
@@ -63,6 +64,7 @@ export default function Navbar() {
         <nav className={styles.desktopNav} aria-label="Primary navigation">
           {navItems.map((item) => (
             <button
+              type="button"
               key={item.href}
               onClick={() => handleNav(item.href)}
               className={`${styles.navBtn} ${active === item.href ? styles.active : ""}`}
@@ -74,6 +76,7 @@ export default function Navbar() {
 
           {featureFlags.themeToggle && (
             <button
+              type="button"
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               className={styles.themeBtn}
@@ -87,6 +90,7 @@ export default function Navbar() {
         <div className={styles.mobileControls}>
           {featureFlags.themeToggle && (
             <button
+              type="button"
               onClick={toggleTheme}
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               className={styles.themeBtn}
@@ -95,8 +99,11 @@ export default function Navbar() {
             </button>
           )}
           <button
+            type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-nav"
             className={styles.menuBtn}
           >
             {mobileOpen ? <HiXMark size={24} /> : <HiBars3 size={24} />}
@@ -106,9 +113,10 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <nav className={styles.mobileDrawer} aria-label="Mobile navigation">
+        <nav id="mobile-nav" className={styles.mobileDrawer} aria-label="Mobile navigation">
           {navItems.map((item) => (
             <button
+              type="button"
               key={item.href}
               onClick={() => handleNav(item.href)}
               className={`${styles.mobileNavBtn} ${active === item.href ? styles.active : ""}`}

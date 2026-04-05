@@ -2,29 +2,34 @@
 
 /* ─── CSS Custom Properties ─────────────────────────────────────────── */
 :root {
-  --bg-primary: #0f0f13;
-  --bg-secondary: #16161d;
-  --bg-card: #1e1e28;
-  --text-primary: #e8e8f0;
-  --text-secondary: #9898b0;
-  --accent: #7c6af7;
-  --accent-light: #a89bfa;
-  --accent-glow: rgba(124, 106, 247, 0.25);
-  --border: rgba(255, 255, 255, 0.08);
-  --gradient: linear-gradient(135deg, #7c6af7, #a78bfa, #c084fc);
+  --bg-primary: #090a11;
+  --bg-secondary: #0f111b;
+  --bg-card: rgba(20, 22, 34, 0.78);
+  --text-primary: #f3f4fb;
+  --text-secondary: #9ea4bf;
+  --accent: #8f7dff;
+  --accent-light: #c6bdff;
+  --accent-glow: rgba(143, 125, 255, 0.28);
+  --border: rgba(255, 255, 255, 0.11);
+  --gradient: linear-gradient(130deg, #7f6dff 0%, #9e7dff 45%, #c28dff 100%);
+  --surface-shadow: 0 14px 42px rgba(0, 0, 0, 0.34);
+  --card-radius: 1.25rem;
+  --motion-fast: 180ms;
+  --motion-base: 280ms;
 }
 
 [data-theme="light"] {
-  --bg-primary: #f8f8fc;
-  --bg-secondary: #f0f0f8;
-  --bg-card: #ffffff;
-  --text-primary: #1a1a2e;
-  --text-secondary: #555570;
-  --accent: #6c5ce7;
-  --accent-light: #8b7df0;
-  --accent-glow: rgba(108, 92, 231, 0.18);
-  --border: rgba(0, 0, 0, 0.08);
-  --gradient: linear-gradient(135deg, #6c5ce7, #a78bfa, #c084fc);
+  --bg-primary: #f4f4fb;
+  --bg-secondary: #ececf7;
+  --bg-card: rgba(255, 255, 255, 0.8);
+  --text-primary: #181a2f;
+  --text-secondary: #5a6181;
+  --accent: #6d5eff;
+  --accent-light: #9d90ff;
+  --accent-glow: rgba(109, 94, 255, 0.2);
+  --border: rgba(42, 40, 83, 0.12);
+  --gradient: linear-gradient(130deg, #5f52f7 0%, #8468ff 45%, #b07eff 100%);
+  --surface-shadow: 0 14px 36px rgba(44, 36, 102, 0.12);
 }
 
 /* ─── Base ──────────────────────────────────────────────────────────── */
@@ -41,11 +46,16 @@ html {
 
 body {
   background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(circle at 8% -10%, rgba(143, 125, 255, 0.2), transparent 36%),
+    radial-gradient(circle at 95% 10%, rgba(194, 141, 255, 0.14), transparent 32%),
+    linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   color: var(--text-primary);
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
-  line-height: 1.7;
+  line-height: 1.65;
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::selection {
@@ -66,71 +76,76 @@ body {
 
 /* ─── Section Utility ───────────────────────────────────────────────── */
 .section {
-  padding: 6rem 0;
+  padding-block: clamp(3.5rem, 8vw, 6rem);
 }
 
 .section-inner {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-inline: clamp(1rem, 3vw, 1.5rem);
 }
 
 .section-tag {
   display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-glow);
-  border: 1px solid var(--accent);
+  color: var(--accent-light);
+  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
   border-radius: 9999px;
-  padding: 0.25rem 0.85rem;
-  margin-bottom: 1rem;
+  padding: 0.35rem 0.95rem;
+  margin-bottom: 1.1rem;
 }
 
 .section-title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
+  font-size: clamp(1.9rem, 4.8vw, 3.15rem);
+  font-weight: 800;
   color: var(--text-primary);
-  margin-bottom: 0.4rem;
-  letter-spacing: -0.02em;
+  margin-bottom: 0.55rem;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
 }
 
 .divider {
-  width: 3.5rem;
-  height: 3px;
+  width: 4.5rem;
+  height: 4px;
   background: var(--gradient);
   border-radius: 9999px;
-  margin: 0.6rem 0 2.5rem;
+  margin: 0.8rem 0 2.4rem;
 }
 
 /* ─── Card ──────────────────────────────────────────────────────────── */
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1.75rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border-radius: var(--card-radius);
+  padding: clamp(1rem, 2.2vw, 1.75rem);
+  transition: transform var(--motion-base) ease, box-shadow var(--motion-base) ease, border-color var(--motion-base) ease;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--surface-shadow);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px var(--accent-glow);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px color-mix(in srgb, var(--accent-glow) 72%, black 28%);
   border-color: var(--accent);
 }
 
 /* ─── Tech Tag ──────────────────────────────────────────────────────── */
 .tech-tag {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: var(--accent-light);
-  background: var(--accent-glow);
-  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 74%, transparent);
   border-radius: 9999px;
-  padding: 0.2rem 0.65rem;
-  transition: background 0.2s ease;
+  padding: 0.28rem 0.72rem;
+  letter-spacing: 0.03em;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .tech-tag:hover {
@@ -150,37 +165,44 @@ body {
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
+  min-height: 48px;
+  min-width: 48px;
   background: var(--gradient);
   color: #fff;
   border: none;
   border-radius: 9999px;
   font-weight: 600;
   font-size: 0.95rem;
+  letter-spacing: 0.01em;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
   text-decoration: none;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px var(--accent-glow);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--accent-glow);
 }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
+  min-height: 48px;
+  min-width: 48px;
   background: transparent;
   color: var(--accent);
-  border: 1.5px solid var(--accent);
+  border: 1.5px solid color-mix(in srgb, var(--accent) 82%, transparent);
   border-radius: 9999px;
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all var(--motion-fast) ease;
   text-decoration: none;
 }
 
@@ -195,4 +217,34 @@ body {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 4px;
+}
+
+@media (max-width: 1023px) {
+  .section {
+    padding-block: clamp(3rem, 7vw, 4.5rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .section {
+    padding-block: 2.75rem;
+  }
+
+  .section-inner {
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

@@ -5,7 +5,7 @@
 }
 
 .card {
-  max-width: 600px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
@@ -35,17 +35,19 @@
 }
 
 .langName {
-  font-size: 0.95rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--text-primary);
 }
 
 .langProf {
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   color: var(--accent-light);
-  font-weight: 500;
-  background: var(--accent-glow);
-  padding: 0.15rem 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  padding: 0.2rem 0.68rem;
   border-radius: 9999px;
   border: 1px solid var(--accent);
 }

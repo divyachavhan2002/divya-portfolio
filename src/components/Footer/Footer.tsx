@@ -24,8 +24,9 @@ export default function Footer() {
               rel="noopener noreferrer"
               aria-label={label}
               className={styles.socialIcon}
+              data-platform={label.toLowerCase()}
             >
-              {icon}
+              <span className={styles.socialIconMark} aria-hidden="true">{icon}</span>
             </a>
           ))}
         </div>

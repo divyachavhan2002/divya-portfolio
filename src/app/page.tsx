@@ -18,11 +18,11 @@ export default function Home() {
       <Stats />
       <About />
       <Skills />
-      <Languages />
       <Experience />
       <Education />
       <Projects />
       <Certifications />
+      <Languages />
       <Contact />
     </>
   );

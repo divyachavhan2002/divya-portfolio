@@ -13,6 +13,7 @@ import type { UIStrings } from "./types";
 export const strings: UIStrings = {
   // ── Navigation ─────────────────────────────────────────────────────────────
   nav: {
+    home: "Home",
     about: "About",
     skills: "Skills",
     languages: "Languages",

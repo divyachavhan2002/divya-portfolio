@@ -7,14 +7,14 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
   align-items: start;
 }
 
 .bio {
   color: var(--text-secondary);
   line-height: 1.9;
-  font-size: 1rem;
+  font-size: 1.02rem;
   margin-bottom: 1.75rem;
 }
 
@@ -30,17 +30,20 @@
   gap: 0.4rem;
   padding: 0.4rem 0.85rem;
   border-radius: 9999px;
-  background: var(--bg-card);
+  background: color-mix(in srgb, var(--bg-card) 90%, transparent);
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  font-size: 0.82rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .chip:hover {
   color: var(--accent);
   border-color: var(--accent);
+  transform: translateY(-2px);
 }
 
 .chipIcon {
@@ -49,9 +52,11 @@
 }
 
 .highlightTitle {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.88rem;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
 

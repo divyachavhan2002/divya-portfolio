@@ -83,8 +83,9 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   aria-label={label}
                   className={styles.socialCircle}
+                  data-platform={label.toLowerCase()}
                 >
-                  {icon}
+                  <span className={styles.socialIconMark} aria-hidden="true">{icon}</span>
                 </a>
               ))}
             </div>

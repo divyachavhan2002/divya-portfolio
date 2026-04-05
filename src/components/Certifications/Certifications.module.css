@@ -21,7 +21,7 @@
   width: 2.75rem;
   height: 2.75rem;
   border-radius: 10px;
-  background: var(--accent-glow);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
   border: 1px solid var(--accent);
   display: flex;
   align-items: center;
@@ -31,8 +31,8 @@
 }
 
 .title {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.08rem;
+  font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.2rem;
 }
@@ -58,8 +58,8 @@
 
 .description {
   color: var(--text-secondary);
-  font-size: 0.88rem;
-  line-height: 1.75;
+  font-size: 0.9rem;
+  line-height: 1.8;
   margin-bottom: 1.25rem;
 }
 

@@ -11,8 +11,7 @@
 //   • Animation timing is consistent across all ScrollReveal usages.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { FaLinkedinIn, FaGithub } from "react-icons/fa";
-import { HiEnvelope } from "react-icons/hi2";
+import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 import { personalInfo } from "./resume";
 import type { ReactNode } from "react";
 
@@ -55,17 +54,17 @@ export interface SocialLink {
 export const socialLinks: SocialLink[] = [
   {
     href: personalInfo.linkedin,
-    icon: FaLinkedinIn({ size: 16 }),
+    icon: FaLinkedinIn({ size: 17 }),
     label: "LinkedIn",
   },
   {
     href: personalInfo.github,
-    icon: FaGithub({ size: 16 }),
+    icon: FaGithub({ size: 17 }),
     label: "GitHub",
   },
   {
     href: `mailto:${personalInfo.email}`,
-    icon: HiEnvelope({ size: 16 }),
+    icon: FaEnvelope({ size: 17 }),
     label: "Email",
   },
 ];

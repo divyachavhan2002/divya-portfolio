@@ -89,6 +89,8 @@ export interface ProjectItem {
   title: string;
   description: string;
   tech: string[];
+  /** Optional screenshot path under /public for project card thumbnail */
+  image?: string;
   /** GitHub repo URL — empty string if private/unavailable */
   github: string;
   /** Live demo URL — empty string if not deployed */
@@ -110,6 +112,7 @@ export interface CertificationItem {
 
 // ── UI Strings ───────────────────────────────────────────────────────────────
 export interface NavStrings {
+  home: string;
   about: string;
   skills: string;
   languages: string;
@@ -135,7 +138,7 @@ export interface AboutStrings extends SectionHeading {
   highlights_heading: string;
 }
 
-export interface SkillsStrings extends SectionHeading {}
+export type SkillsStrings = SectionHeading;
 
 export interface ExperienceStrings extends SectionHeading {
   type_separator: string; // e.g. "·"
@@ -152,9 +155,9 @@ export interface ProjectsStrings extends SectionHeading {
   featured_label: string;
 }
 
-export interface CertificationsStrings extends SectionHeading {}
+export type CertificationsStrings = SectionHeading;
 
-export interface LanguagesStrings extends SectionHeading {}
+export type LanguagesStrings = SectionHeading;
 
 export interface ContactStrings extends SectionHeading {
   intro: string;
